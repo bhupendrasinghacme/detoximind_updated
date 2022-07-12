@@ -28,6 +28,34 @@ const routes: Routes = [
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then(m => m.IntroPageModule)
   },
+  {
+    path: 'forgetpassword',
+    loadChildren: () => import('./forgetpassword/forgetpassword.module').then( m => m.ForgetpasswordPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'meditation',
+    loadChildren: () => import('./meditation/meditation.module').then( m => m.MeditationPageModule)
+  },
+  {
+    path: 'askmebuddy',
+    loadChildren: () => import('./askmebuddy/askmebuddy.module').then( m => m.AskmebuddyPageModule)
+  },
+  {
+    path: 'journal',
+    loadChildren: () => import('./journal/journal.module').then( m => m.JournalPageModule)
+  },
+  {
+    path: 'openpage',
+    loadChildren: () => import('./openpage/openpage.module').then( m => m.OpenpagePageModule)
+  },
+  {
+    path: 'blogs',
+    loadChildren: () => import('./blogs/blogs.module').then( m => m.BlogsPageModule)
+  },
 ];
 
 @NgModule({

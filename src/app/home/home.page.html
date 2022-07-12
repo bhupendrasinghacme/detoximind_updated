@@ -1,21 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="upper_Section">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    </div>
+    <div class="bottom_section">
+        <div class="bottom_section_row" *ngFor="let item of All_items">
+            <ion-card (click)="openScreens(item.type)">
+                <ion-card-content mode="ios">
+                    <h1>{{item.title}}</h1>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
 </ion-content>
