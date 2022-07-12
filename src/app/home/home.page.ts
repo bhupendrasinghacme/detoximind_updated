@@ -62,17 +62,33 @@ export class HomePage {
   ]
   constructor(
     public router: Router
-
   ) {
-    const squareC = createAnimation()
-      .addElement(document.querySelector('.bottom_section_row'))
-      .duration(5000)
-      .keyframes([
-        { offset: 0, transform: 'scale(1))', opacity: '0.5' },
-        { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
-        { offset: 1, transform: 'scale(1)', opacity: '0.5' }
-      ]);
-    squareC.play();
+    setTimeout(() => {
+      const squareA = createAnimation()
+        .addElement(document.querySelectorAll('.image_icon'))
+        .keyframes([
+          { offset: 0, transform: 'scale(1) rotate(0)' },
+          { offset: 0.5, transform: 'scale(1.2) rotate(45deg)' },
+          { offset: 1, transform: 'scale(1) rotate(45deg)' }
+        ]);
+
+      const squareC = createAnimation()
+        .addElement(document.querySelectorAll('.image_icon'))
+        .duration(2000)
+        .keyframes([
+          { offset: 0, transform: 'scale(1))', color: 'green' },
+          { offset: 0.5, transform: 'scale(0.8)', color: 'blue' },
+          { offset: 1, transform: 'scale(1)', color: 'red' }
+        ]);
+
+      const parent = createAnimation()
+        .duration(2000)
+        .iterations(Infinity)
+        .addAnimation([squareA, squareC]);
+      parent.play();
+    }, 1000)
+
+
 
   }
 

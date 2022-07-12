@@ -11,7 +11,7 @@
         <div class="bottom_section_row" *ngFor="let item of All_items">
             <ion-card (click)="openScreens(item.type)">
                 <ion-card-content mode="ios">
-                    <ion-icon name="{{item.icon}}"></ion-icon>
+                    <ion-icon class="image_icon" name="{{item.icon}}"></ion-icon>
                     <h1>{{item.title}}</h1>
                 </ion-card-content>
             </ion-card>
