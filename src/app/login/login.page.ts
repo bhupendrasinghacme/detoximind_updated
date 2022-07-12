@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
     this.authService.login(all_data_login).subscribe(
       async (res) => {
         await loading.dismiss();
-        this.router.navigateByUrl('/tabs', { replaceUrl: true });
+        this.router.navigateByUrl('/home', { replaceUrl: true });
       },
       async (err) => {
         await loading.dismiss();
@@ -59,6 +59,7 @@ export class LoginPage implements OnInit {
   }
 
   async presentDataAlert(errorMessage) {
+    console.log("hello")
     const alert = await this.alertController.create({
       header: 'Login failed',
       message: errorMessage,

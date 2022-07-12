@@ -31,11 +31,10 @@ export class AuthenticationService {
   }
 
   login(credentials: { username, password }): Observable<any> {
-    // console.log("credentials----->>>>>",credentials);
     return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, credentials).pipe(
       map((data: any) => {
+        console.log("get data------->", data);
         this.userData = data.data;
-
         Storage.set({ key: "user_data", value: JSON.stringify(this.userData) })
         return data.data.token
       }),

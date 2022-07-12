@@ -1,10 +1,4 @@
-<!-- <ion-header>
-<ion-toolbar color="primary">
-  <ion-title>Login</ion-title>
-</ion-toolbar>
-</ion-header> -->
-<ion-content>
-
+<ion-content [fullscreen]="true">
   <form (ngSubmit)="login()" [formGroup]="credentials">
     <img src="../../assets/Logo.jpg" alt="">
     <h5 class="login-title">Sign into your account</h5>
@@ -30,7 +24,7 @@
     <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
     <ion-button type="button" expand="block" fill="clear" [routerLink]="['/forgetpassword']">Forget Password?
     </ion-button>
-    <ion-button type="button" expand="block" fill="clear" [routerLink]="['/signuppage']">Not yet a member?
+    <ion-button type="button" expand="block" fill="clear" [routerLink]="['/signup']">Not yet a member?
       Sign up!
     </ion-button>
 
