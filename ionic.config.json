@@ -1,0 +1,7 @@
+{
+  "name": "detoximind_updated",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
