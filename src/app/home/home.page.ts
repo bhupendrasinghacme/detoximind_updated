@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { createAnimation, Animation } from '@ionic/core';
 
 @Component({
   selector: 'app-home',
@@ -57,12 +58,23 @@ export class HomePage {
       background: "#fff",
       icon: "card"
     },
-  
+
   ]
   constructor(
     public router: Router
 
-  ) { }
+  ) {
+    const squareC = createAnimation()
+      .addElement(document.querySelector('.bottom_section_row'))
+      .duration(5000)
+      .keyframes([
+        { offset: 0, transform: 'scale(1))', opacity: '0.5' },
+        { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
+        { offset: 1, transform: 'scale(1)', opacity: '0.5' }
+      ]);
+    squareC.play();
+
+  }
 
   openScreens(nav) {
     if (nav == "helpline") {
