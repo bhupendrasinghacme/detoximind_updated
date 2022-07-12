@@ -65,8 +65,14 @@ export class HomePage {
   ) { }
 
   openScreens(nav) {
-    console.log(nav);
-    this.router.navigate(['/', nav]);
+    if (nav == "helpline") {
+      this.router.navigate([`/openpage`, '14158']);
+    } else if (nav == "workshop") {
+      this.router.navigate([`/openpage`, '13']);
+    } else {
+      this.router.navigate([`/${nav}`]);
+    }
+
 
   }
 
