@@ -7,7 +7,7 @@
 
   <form (ngSubmit)="login()" [formGroup]="credentials">
     <img src="../../assets/Logo.jpg" alt="">
-    <h5 class="login-title">Sign into your account</h5>
+    <h5 class="login-title">Login</h5>
     <div class="input-group">
       <ion-item>
         <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
@@ -28,9 +28,9 @@
     </div>
 
     <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
-    <ion-button type="button" expand="block" fill="clear" [routerLink]="['/forgetpassword']">Forget Password?
+    <ion-button type="button" expand="block" fill="clear" [routerLink]="['/forgetpassword']" class="forget-link">Forget Password?
     </ion-button>
-    <ion-button type="button" expand="block" fill="clear" [routerLink]="['/signuppage']">Not yet a member?
+    <ion-button type="button" expand="block" fill="clear" [routerLink]="['/signuppage']" class="forget-link">Not yet a member?
       Sign up!
     </ion-button>
 

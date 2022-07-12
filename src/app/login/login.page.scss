@@ -1,58 +1,128 @@
 ion-content {
-    --padding-top: 50%;
+    --padding-top: 20%;
     --padding-start: 10%;
     --padding-end: 10%;
     --background: #0F1B41;
     --color: #fff;
 
+    &:after {
+        width: 398px;
+        height: 162px;
+        content: "";
+        display: block;
+        background: #fff;
+        position: absolute;
+        z-index: 9;
+        top: 0;
+        clip-path: polygon(0% 0, 100% -1%, 0 100%);
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    }
+&:before {
+    width: 398px;
+    height: 162px;
+    content: "";
+    display: block;
+    background: #fff;
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
     .login-title {
         color: #fff;
-        font-size: 20px;
+        font-size: 30px;
         text-align: center;
         margin-bottom: 15px;
+        text-transform: uppercase;
+        font-family: 'Roboto', serif;
+        line-height: 2;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    form {
+        padding: 20px;
+        border-radius: 15px;
+
+        img {
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
+            width: 100%;
+            box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+            border-radius: 5px;
+        }
+
+        ion-item {
+            --background: transparent;
+            --color: #fff;
+            --placeholder-color: #fff;
+            border: 1px solid #fff;
+
+        }
+
+        ion-input input:-internal-autofill-selected {
+            --background: transparent !important;
+        }
+
+        ion-button[type="submit"] {
+            --background: #fff;
+            --color: #0F1B41;
+            --border-radius: 25px;
+            width: 100px;
+            margin: auto;
+            box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        }
+
+        ion-button[type="button"] {
+            color: #0F1B41;
+        }
+
+        .errors {
+            font-size: small;
+            color: #e91616;
+            padding-left: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        ion-input {
+            --placeholder-color: #fff;
+        }
+        .forget-link {
+            color: #fff !important;
+        }
     }
 }
+::ng-deep input:-webkit-autofill,
 
-.input-group {
-    // background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 15px;
-    border: 1px solid #000;
-}
+::ng-deep input:-webkit-autofill:hover,
 
-.errors {
-    font-size: small;
-    color: #fff;
-    background: var(--ion-color-danger);
-    padding-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+::ng-deep input:-webkit-autofill:focus,
 
-form {
-    // box-shadow: 3px 7px 0px -3px #fff;
-    padding: 20px;
-    border-radius: 15px;
-    // background: #fff;
+::ng-deep input:-webkit-autofill,
 
-    img {
-        max-width: 80px;
-        margin: 0 auto;
-        display: block;
-    }
-}
+::ng-deep textarea:-webkit-autofill,
 
-ion-input input:-internal-autofill-selected {
-    --background: transparent !important;
-}
+::ng-deep textarea:-webkit-autofill:hover
 
-ion-button[type="submit"] {
-    --background: #fff;
-    --color: #0F1B41;
+::ng-deep textarea:-webkit-autofill:focus,
 
-}
+::ng-deep select:-webkit-autofill,
 
-ion-button[type="button"] {
-    color: #0F1B41;
+::ng-deep select:-webkit-autofill:hover,
+
+::ng-deep select:-webkit-autofill:focus {
+
+  border:none !important;
+
+  -webkit-text-fill-color: #fff !important;
+
+  /* -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset; */
+
+  transition: background-color 5000s ease-in-out 0s;
+
 }
