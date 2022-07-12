@@ -8,18 +8,16 @@ ion-content {
     width: 100%;
     justify-content: center;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    padding: 10px;
-
-    h1 {
-      font-size: 35px;
-      text-align: center;
-      text-transform: uppercase;
-    }
+    padding: 15px;
 
     ion-icon {
       position: absolute;
       right: 14px;
       font-size: 33px;
+    }
+    img {
+      max-width: 120px;
+      width: 100%;
     }
   }
 
@@ -56,6 +54,24 @@ ion-content {
         }
 
       }
+    }
+  }
+
+  .home-banner {
+    position: relative;
+
+    h2 {
+      font-size: 25px;
+      position: absolute;
+      top: 40%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 30px;
+      font-family: "Edu VIC WA NT Beginner", cursive;
+      font-weight: bold;
     }
   }
 }

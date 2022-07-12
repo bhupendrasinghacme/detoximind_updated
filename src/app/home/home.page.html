@@ -1,7 +1,11 @@
 <ion-content [fullscreen]="true">
     <div class="upper_Section">
-     <h1>Detoximind</h1>
+   <img src="../../assets/Logo.jpg" alt="">
      <ion-icon name="person"></ion-icon>
+    </div>
+    <div class="home-banner">
+    <img src="../../assets/nsplsh.png" alt="">   
+    <h2>Detoximind</h2> 
     </div>
     <div class="bottom_section">
         <div class="bottom_section_row" *ngFor="let item of All_items">
@@ -9,7 +13,6 @@
                 <ion-card-content mode="ios">
                     <ion-icon name="{{item.icon}}"></ion-icon>
                     <h1>{{item.title}}</h1>
-
                 </ion-card-content>
             </ion-card>
         </div>
