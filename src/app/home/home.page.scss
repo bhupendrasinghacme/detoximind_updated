@@ -15,6 +15,7 @@ ion-content {
       right: 14px;
       font-size: 33px;
     }
+
     img {
       max-width: 120px;
       width: 100%;
@@ -29,14 +30,13 @@ ion-content {
 
     ion-card {
       height: 110px;
-    width: 110px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    padding: 10px;
-
+      width: 110px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 25px;
+      padding: 10px;
 
       ion-card-content {
         display: flex;
