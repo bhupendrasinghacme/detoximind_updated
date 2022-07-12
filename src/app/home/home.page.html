@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true">
     <div class="upper_Section">
-   <img src="../../assets/Logo.jpg" alt="">
-     <ion-icon name="person"></ion-icon>
+        <img src="../../assets/Logo.jpg" alt="">
+        <ion-icon name="person" [routerLink]="['/profile']"></ion-icon>
     </div>
     <div class="home-banner">
-    <img src="../../assets/nsplsh.png" alt="">   
-    <h2>Detoximind</h2> 
+        <img src="../../assets/nsplsh.png" alt="">
+        <h2>Detoximind</h2>
     </div>
     <div class="bottom_section">
         <div class="bottom_section_row" *ngFor="let item of All_items">
