@@ -49,12 +49,6 @@ export class HomePage {
       color: "#0F1B41",
       type: "workshop",
       background: "#fff"
-    },
-    {
-      title: "Profile",
-      color: "#0F1B41",
-      type: "profile",
-      background: "#fff"
     }
   ]
   constructor(
@@ -63,8 +57,14 @@ export class HomePage {
   ) { }
 
   openScreens(nav) {
-    console.log(nav);
-    this.router.navigate(['/', nav]);
+    if (nav == "helpline") {
+      this.router.navigate([`/openpage`, '14158']);
+    } else if (nav == "workshop") {
+      this.router.navigate([`/openpage`, '13']);
+    } else {
+      this.router.navigate([`/${nav}`]);
+    }
+
 
   }
 
