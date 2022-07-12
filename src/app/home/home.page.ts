@@ -12,50 +12,52 @@ export class HomePage {
       title: "Helpline Number",
       type: "helpline",
       color: "#0F1B41",
-      background: "#fff"
+      background: "#fff",
+      icon: "call"
     },
     {
       title: "Chat Room",
       color: "#0F1B41",
       type: "chatroom",
-      background: "#fff"
+      background: "#fff",
+      icon: "browsers"
     },
     {
       title: "Journal",
       color: "#0F1B41",
       type: "journal",
-      background: "#fff"
+      background: "#fff",
+      icon: "journal"
     },
     {
       title: "Ask Me Buddy",
       color: "#0F1B41",
       type: "askmebuddy",
-      background: "#fff"
+      background: "#fff",
+      icon: "chatbubbles"
     },
     {
       title: "Meditation",
       color: "#0F1B41",
       type: "meditation",
-      background: "#fff"
+      background: "#fff",
+      icon: "snow"
     },
     {
       title: "Blogs",
       color: "#0F1B41",
       type: "blogs",
-      background: "#fff"
+      background: "#fff",
+      icon: "logo-twitch"
     },
     {
       title: "Work Shop",
       color: "#0F1B41",
       type: "workshop",
-      background: "#fff"
+      background: "#fff",
+      icon: "card"
     },
-    {
-      title: "Profile",
-      color: "#0F1B41",
-      type: "profile",
-      background: "#fff"
-    }
+  
   ]
   constructor(
     public router: Router
