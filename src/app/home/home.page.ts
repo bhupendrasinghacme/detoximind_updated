@@ -51,7 +51,7 @@ export class HomePage {
       icon: "logo-twitch"
     },
     {
-      title: "Work Shop",
+      title: "Workshop",
       color: "#0F1B41",
       type: "workshop",
       background: "#fff",
