@@ -1,8 +1,11 @@
-<div class="ionic_editor">
-  <div>
-    <input type="text" placeholder="Please Enter Title" [(ngModel)]="title" />
+<div class="ionic_editor_wrapper">
+  <div class="ionic_editor">
+    <div>
+      <input type="text" placeholder="Please Enter Title" [(ngModel)]="title" />
+    </div>
+    <div>
+      <textarea placeholder="Please Enter Description" rows="10" [(ngModel)]="description"></textarea>
+    </div>
   </div>
-  <div>
-    <textarea placeholder="Please Enter Description" rows="10" [(ngModel)]="description"></textarea>
-  </div>
+  <div class="button-add" (click)="addNewNotes()">Add</div>
 </div>

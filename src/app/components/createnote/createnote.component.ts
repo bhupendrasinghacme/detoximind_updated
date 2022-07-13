@@ -11,5 +11,7 @@ export class CreatenoteComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
+  addNewNotes() {
+    console.log(this.description)
+  }
 }
