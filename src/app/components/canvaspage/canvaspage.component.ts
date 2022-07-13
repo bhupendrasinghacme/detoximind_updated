@@ -72,6 +72,7 @@ export class CanvaspageComponent implements AfterViewInit {
 
       this.saveX = currentX;
       this.saveY = currentY;
+      console.log(this.canvasElement);
     }
   }
 
