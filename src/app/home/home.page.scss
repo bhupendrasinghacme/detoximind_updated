@@ -27,17 +27,9 @@ ion-content {
     min-width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction: column;
 
     ion-card {
-      --background: #fff;
-      height: 110px;
-      width: 110px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 25px;
-      padding: 10px;
 
       ion-card-content {
         display: flex;
@@ -46,19 +38,33 @@ ion-content {
         flex-direction: column;
         padding: 0;
 
-        h1 {
-          text-align: center;
-          font-size: 14px;
-          padding-top: 10px;
-        }
+       
 
         ion-icon {
           font-size: 20px;
           color: #0F1B41;
         }
-
+       
+      }
+      h1 {
+        font-size: 14px;
       }
     }
+    .bottom_section_row {
+      display: flex;
+      align-items: center;
+  }
+  .card-title {
+    border-radius: 5px !important;
+  }
+  .card-img-wrap {
+    width: 40%;
+    border-radius: 10px;
+  }
+  .card-title-wrap {
+    width: 60%;
+    padding: 10px;
+  }
   }
 
   .home-banner {
