@@ -13,50 +13,49 @@ export class HomePage {
       title: "Helpline Number",
       type: "helpline",
       color: "#0F1B41",
-      background: "#fff",
-      icon: "call"
+      icon: "../../assets/helpline-num.jpg"
     },
     {
       title: "Chat Room",
       color: "#0F1B41",
       type: "chatroom",
       background: "#fff",
-      icon: "browsers"
+      icon: "../../assets/chat-room.jpg"
     },
     {
       title: "Journal",
       color: "#0F1B41",
       type: "journal",
       background: "#fff",
-      icon: "journal"
+      icon: "../../assets/journal.jpg"
     },
     {
       title: "Ask Me Buddy",
       color: "#0F1B41",
       type: "askmebuddy",
       background: "#fff",
-      icon: "chatbubbles"
+      icon: "../../assets/ask-me-buddy.jpg"
     },
     {
       title: "Meditation",
       color: "#0F1B41",
       type: "meditation",
       background: "#fff",
-      icon: "snow"
+      icon: "../../assets/meditation.jpg"
     },
     {
       title: "Blogs",
       color: "#0F1B41",
       type: "blogs",
       background: "#fff",
-      icon: "logo-twitch"
+      icon: "../../assets/blogs.jpg"
     },
     {
       title: "Workshop",
       color: "#0F1B41",
       type: "workshop",
       background: "#fff",
-      icon: "card"
+      icon: "../../assets/workshop.jpg"
     },
 
   ]
@@ -85,7 +84,7 @@ export class HomePage {
         .duration(2000)
         .iterations(Infinity)
         .addAnimation([squareA, squareC]);
-      parent.play();
+      // parent.play();
     }, 1000)
 
 

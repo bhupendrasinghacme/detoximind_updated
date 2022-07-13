@@ -31,7 +31,9 @@ ion-content {
         clip-path: polygon(100% 0, 100% 100%, 0 100%);
         box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     }
-
+   ion-icon {
+    color: #fff;
+   }
     .login-title {
         color: #fff;
         font-size: 30px;
