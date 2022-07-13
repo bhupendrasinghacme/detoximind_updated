@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./journal.page.scss'],
 })
 export class JournalPage implements OnInit {
-
+  segmentModel: any = 'note';
   constructor() { }
 
   ngOnInit() {
+  }
+  segmentChanged(evt: any) {
+    this.segmentModel = evt.detail.value;
   }
 
 }
