@@ -11,51 +11,58 @@ export class HomePage {
   All_items: any = [
     {
       title: "Helpline Number",
+     describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
       type: "helpline",
       color: "#0F1B41",
-      icon: "../../assets/helpline-num.jpg"
+      img: "../../assets/helpline-num.jpg"
     },
     {
       title: "Chat Room",
+      describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations, generally using text-based communication.",
       color: "#0F1B41",
       type: "chatroom",
       background: "#fff",
-      icon: "../../assets/chat-room.jpg"
+      img: "../../assets/chat-room.jpg"
     },
     {
       title: "Journal",
+      describtion: " Journal apps are best suited for people who want a quick and convenient way to log important memories and events, while others focus more on mental health, self-care, and reflection. ",
       color: "#0F1B41",
       type: "journal",
       background: "#fff",
-      icon: "../../assets/journal.jpg"
+      img: "../../assets/journal.jpg"
     },
     {
       title: "Ask Me Buddy",
+      describtion: "A buddy system is an onboarding and knowledge sharing method used to orient new employees.",
       color: "#0F1B41",
       type: "askmebuddy",
       background: "#fff",
-      icon: "../../assets/ask-me-buddy.jpg"
+      img: "../../assets/ask-me-buddy.jpg"
     },
     {
       title: "Meditation",
+      describtion: "Meditation is the practice of intentionally spending time with our mind. We take time out of our busy days to sit, breathe, and try to remain focused on our breath.",
       color: "#0F1B41",
       type: "meditation",
       background: "#fff",
-      icon: "../../assets/meditation.jpg"
+      img: "../../assets/meditation.jpg"
     },
     {
       title: "Blogs",
+      describtion: "Stress can affect sleep quality. Many people lie awake worrying and feeling anxious, which hinders their ability to get to sleep. ",
       color: "#0F1B41",
       type: "blogs",
       background: "#fff",
-      icon: "../../assets/blogs.jpg"
+      img: "../../assets/blogs.jpg"
     },
     {
       title: "Workshop",
+      describtion: "Detoximind offers a safe space for tweens, teens and young adults who are grappling with stress, low self-esteem, bullying, anxiety or depression.",
       color: "#0F1B41",
       type: "workshop",
       background: "#fff",
-      icon: "../../assets/workshop.jpg"
+      img: "../../assets/workshop.jpg"
     },
 
   ]
