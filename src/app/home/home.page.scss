@@ -24,11 +24,12 @@ ion-content {
 
   .bottom_section {
     display: flex;
-    width: 100%;
+    min-width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
 
     ion-card {
+      --background: #fff;
       height: 110px;
       width: 110px;
       text-align: center;
@@ -77,4 +78,17 @@ ion-content {
       font-weight: bold;
     }
   }
+}
+.bottom_section {
+  padding-top: 25px;
+}
+
+form,
+input,
+optgroup,
+select {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: center;
 }
