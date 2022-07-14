@@ -68,6 +68,10 @@ const routes: Routes = [
     path: 'post/:id',
     loadChildren: () => import('./post/post.module').then(m => m.PostPageModule)
   },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
 ];
 
 @NgModule({

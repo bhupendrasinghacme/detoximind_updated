@@ -1,22 +1,23 @@
 <ion-content [fullscreen]="true">
     <div class="upper_Section">
         <img src="../../assets/Logo.jpg" alt="">
-        <ion-icon name="person" [routerLink]="['/profile']"></ion-icon>
+        <ion-icon name="person-circle-outline" [routerLink]="['/profile']"></ion-icon>
+        <!-- <ion-icon name="person" ></ion-icon> -->
     </div>
     <div class="home-banner">
         <img src="../../assets/nsplsh.png" alt="">
         <h2>Detoximind</h2>
     </div>
     <div class="bottom_section">
-        <div class="bottom_section_row" *ngFor="let item of All_items">
-            <div (click)="openScreens(item.type)" class="card-img-wrap">
-                
-                    <ion-img class="image_icon" src="{{item.img}}"></ion-img>  
+        <div class="bottom_section_row" *ngFor="let item of All_items" (click)="openScreens(item.type)">
+            <div class="card-img-wrap">
+
+                <ion-img class="image_icon" src="{{item.img}}"></ion-img>
             </div>
             <ion-card class="card-title-wrap">
-                  <h1>{{item.title}}</h1>
-                  <p>{{item.describtion}}</p>
-                </ion-card>
+                <h1>{{item.title}}</h1>
+                <p>{{item.describtion}}</p>
+            </ion-card>
         </div>
     </div>
 </ion-content>
