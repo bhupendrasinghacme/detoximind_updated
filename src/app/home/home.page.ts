@@ -11,7 +11,7 @@ export class HomePage {
   All_items: any = [
     {
       title: "Helpline Number",
-     describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
+      describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
       type: "helpline",
       color: "#0F1B41",
       img: "../../assets/helpline-num.jpg"
@@ -20,7 +20,7 @@ export class HomePage {
       title: "Chat Room",
       describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations, generally using text-based communication.",
       color: "#0F1B41",
-      type: "chatroom",
+      type: "chatpage",
       background: "#fff",
       img: "../../assets/chat-room.jpg"
     },

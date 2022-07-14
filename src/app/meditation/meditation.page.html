@@ -3,10 +3,30 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>meditation</ion-title>
+    <ion-title>Meditation</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div>
+    <ion-card *ngFor="let post of posts" class="post-card" [routerLink]="['/post', post.id]">
+      <ion-card-header>
+        <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p [innerHTML]="post.excerpt.rendered"></p>
+      </ion-card-content>
+      <!-- detail -->
+      <ion-item class="ion-activated" lines="none">
+        <ion-label *ngIf="!post.modified">{{post.date | date}}</ion-label>
+        <ion-label *ngIf="post.modified">{{post.modified | date}}</ion-label>
+        <ion-label class="read-more-label">Read More</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more posts ...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
 </ion-content>

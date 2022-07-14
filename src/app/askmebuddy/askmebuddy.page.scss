@@ -1,0 +1,108 @@
+ion-toolbar {
+    --background: #0F1B41;
+    --color: #FFFAEA;
+}
+
+// .text-feedback {
+//     display: flex;
+//     justify-content: center;
+//     padding-top: 100%;
+// }
+
+ion-footer {
+    --background: #0F1B41;
+    --color: #FFFAEA;
+}
+
+ion-item {
+    --background: #0F1B41;
+    --color: #FFFAEA;
+    margin-top: 12px;
+}
+
+.text-feedback {
+    padding: 20px;
+    background: #fff;
+    color: #000;
+    height: 75%;
+    overflow-y: scroll;
+}
+
+.text-feedback_wrap {
+    border-bottom: 1px solid #ccc;
+}
+
+ion-button[ng-reflect-type="submit"] {
+    --background: #0F1B41;
+    margin: 0;
+    --ion-color-base: #0F1B41 !important;
+    --ion-color-shade: #0F1B41 !important;
+    --ion-color-tint: #0F1B41 !important;
+}
+
+form {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #0F1B41;
+    padding: 20px;
+    height: 25%;
+
+    ion-button {
+        --background: #fff !important;
+        // opacity: 1;
+        color: #000;
+        max-width: 157px;
+        margin: 15px auto;
+        --border-radius: 5px;
+        --padding: 20px;
+        --cursor: pointer;
+    }
+
+    :host(.item-fill-none.item-interactive.ion-focus) .item-native,
+    :host(.item-fill-none.item-interactive.item-has-focus) .item-native,
+    :host(.item-fill-none.item-interactive.ion-touched.ion-invalid) .item-native {
+        border-bottom: unset;
+    }
+
+    ion-label {
+        text-transform: uppercase;
+        padding-right: 10px;
+        color: #fff;
+    }
+}
+
+// ::ng-deep textarea.native-textarea.sc-ion-textarea-md {
+//     border: 2px solid #fff;
+//     padding: 10px;
+//     border-radius: 5px;
+// }
+
+
+ion-content {
+    .text-feedback p {
+        text-transform: capitalize;
+
+        strong {
+            padding-right: 10px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+::ng-deep item-inner {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+}
+
+::ng-deep ion-tab-bar {
+    --background: #fff;
+
+    ion-tab-button {
+        --color: #0C1A40;
+    }
+
+    ion-tab-button.tab-selected {
+        color: #009688;
+    }
+}

@@ -1,0 +1,33 @@
+ion-toolbar {
+    --background: #0F1B41;
+    --color: #FFFAEA;
+}
+
+ion-content {
+    --background: #fff;
+    --color: #000000;
+
+    ion-text.md.hydrated p {
+        padding: 0px 15px;
+        text-align: justify;
+        font-family: "Roboto Slab";
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
+::ng-deep ion-content {
+    ion-text {
+        h4 {
+            text-align: left;
+
+            img {
+                max-width: 100%;
+                border: 0;
+                width: 100%;
+                object-fit: contain;
+                margin: 20px auto;
+            }
+        }
+    }
+}

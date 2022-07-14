@@ -13,3 +13,17 @@ canvas {
 canvas {
     background: #fff;
 }
+
+.color-block.active {
+    border: 4px solid #fff;
+}
+
+.errager_cls {
+    margin-left: 10px;
+    background: rgb(190, 174, 174);
+    width: 65px;
+    display: flex;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+}
