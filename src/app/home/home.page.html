@@ -9,13 +9,10 @@
     </div>
     <div class="bottom_section">
         <div class="bottom_section_row" *ngFor="let item of All_items">
-            <ion-card (click)="openScreens(item.type)" class="card-img-wrap">
-                <ion-card-content mode="ios">
-                    <ion-img class="image_icon" src="{{item.img}}"></ion-img>
-                    <img name="{{item.icon}}" alt="">
-                  
-                </ion-card-content>
-            </ion-card>
+            <div (click)="openScreens(item.type)" class="card-img-wrap">
+                
+                    <ion-img class="image_icon" src="{{item.img}}"></ion-img>  
+            </div>
             <ion-card class="card-title-wrap">
                   <h1>{{item.title}}</h1>
                   <p>{{item.describtion}}</p>
