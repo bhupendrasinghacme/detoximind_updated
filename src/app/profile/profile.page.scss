@@ -1,8 +1,32 @@
 ion-toolbar {
     --background: #0F1B41;
     --color: #fff;
+
     ion-icon {
         padding-right: 20px;
         font-size: 30px;
     }
+}
+
+ion-content {
+    --background: #0F1B41;
+    --color: #fff;
+
+    .profile_svg_wrapper {
+        width: 70%;
+        padding: 64px 36px 46px 36px;
+        margin: auto;
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    ion-card {
+        --background: #0F1B41;
+        --color: #fff;
+        text-align: center;
+    }
+
 }

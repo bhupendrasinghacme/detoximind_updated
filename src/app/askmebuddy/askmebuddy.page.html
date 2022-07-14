@@ -26,15 +26,19 @@
 </ion-content>
 <ion-footer>
   <form [formGroup]="ionicForm" (ngSubmit)="submitForm()">
-    <ion-label>Question:</ion-label>
-    <ion-item lines="full" fill="outline">
-      <ion-textarea placeholder="Enter Your Question" type="text" [(ngModel)]="questionMsg"
-        formControlName="questionInput" autofocus="true">
-      </ion-textarea>
-    </ion-item>
-
-    <ion-button expand="block" type="submit" [disabled]="!ionicForm.valid">Ask Question
-      <ion-spinner name="lines-small" *ngIf="loader"></ion-spinner>
-    </ion-button>
+    <!-- <ion-label>Question:</ion-label> -->
+    <ion-row>
+      <ion-col size="8">
+        <ion-input placeholder="Enter Your Question" type="text" [(ngModel)]="questionMsg"
+          formControlName="questionInput" autofocus="true" color="primary">
+        </ion-input>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button expand="block" type="submit" [disabled]="!ionicForm.valid">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+          <ion-spinner name="lines-small" *ngIf="loader"></ion-spinner>
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-footer>
