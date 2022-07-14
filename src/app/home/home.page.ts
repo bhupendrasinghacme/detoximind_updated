@@ -18,7 +18,7 @@ export class HomePage {
     },
     {
       title: "Chat Room",
-      describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations, generally using text-based communication.",
+      describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations.",
       color: "#0F1B41",
       type: "chatpage",
       background: "#fff",
@@ -26,7 +26,7 @@ export class HomePage {
     },
     {
       title: "Journal",
-      describtion: " Journal apps are best suited for people who want a quick and convenient way to log important memories and events, while others focus more on mental health, self-care, and reflection. ",
+      describtion: " Journal apps are best suited for people who want a quick important memories. ",
       color: "#0F1B41",
       type: "journal",
       background: "#fff",
@@ -42,7 +42,7 @@ export class HomePage {
     },
     {
       title: "Meditation",
-      describtion: "Meditation is the practice of intentionally spending time with our mind. We take time out of our busy days to sit, breathe, and try to remain focused on our breath.",
+      describtion: "Meditation is the practice of intentionally spending time with our mind.",
       color: "#0F1B41",
       type: "meditation",
       background: "#fff",
