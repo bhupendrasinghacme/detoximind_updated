@@ -9,10 +9,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     canLoad: [AuthGuard] // Secure all child pages
+
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'splash',
     pathMatch: 'full'
   },
   {
@@ -34,43 +35,53 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'meditation',
-    loadChildren: () => import('./meditation/meditation.module').then(m => m.MeditationPageModule)
+    loadChildren: () => import('./meditation/meditation.module').then(m => m.MeditationPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'askmebuddy',
-    loadChildren: () => import('./askmebuddy/askmebuddy.module').then(m => m.AskmebuddyPageModule)
+    loadChildren: () => import('./askmebuddy/askmebuddy.module').then(m => m.AskmebuddyPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'journal',
-    loadChildren: () => import('./journal/journal.module').then(m => m.JournalPageModule)
+    loadChildren: () => import('./journal/journal.module').then(m => m.JournalPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'openpage/:id',
-    loadChildren: () => import('./openpage/openpage.module').then(m => m.OpenpagePageModule)
+    loadChildren: () => import('./openpage/openpage.module').then(m => m.OpenpagePageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'blogs',
-    loadChildren: () => import('./blogs/blogs.module').then(m => m.BlogsPageModule)
+    loadChildren: () => import('./blogs/blogs.module').then(m => m.BlogsPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'chatroom',
-    loadChildren: () => import('./chatroom/chatroom.module').then(m => m.ChatroomPageModule)
+    loadChildren: () => import('./chatroom/chatroom.module').then(m => m.ChatroomPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'chatpage',
-    loadChildren: () => import('./chatpage/chatpage.module').then(m => m.ChatpagePageModule)
+    loadChildren: () => import('./chatpage/chatpage.module').then(m => m.ChatpagePageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'post/:id',
-    loadChildren: () => import('./post/post.module').then(m => m.PostPageModule)
+    loadChildren: () => import('./post/post.module').then(m => m.PostPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
   {
     path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./splash/splash.module').then(m => m.SplashPageModule),
+    canLoad: [AuthGuard] // Secure all child pages
   },
 ];
 

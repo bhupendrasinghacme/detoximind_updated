@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { createAnimation, Animation } from '@ionic/core';
+import { Router } from '@angular/router';
+import { Animation, AnimationController } from '@ionic/angular';
 @Component({
   selector: 'app-splash',
   templateUrl: './splash.page.html',
@@ -7,34 +8,36 @@ import { createAnimation, Animation } from '@ionic/core';
 })
 export class SplashPage implements OnInit, AfterViewInit {
 
-  constructor() {
+  constructor(
+    private animationCtrl: AnimationController,
+    public router: Router
+  ) {
   }
 
   ngOnInit() {
   }
   ngAfterViewInit() {
-    const squareA = createAnimation()
-      .addElement(document.querySelectorAll('.img_wrapper'))
-      .keyframes([
-        { offset: 1, transform: 'scale(1) rotate(360)' },
-        // { offset: 0.5, transform: 'scale(1.2) rotate(45deg)' },
-        // { offset: 1, transform: 'scale(1) rotate(45deg)' }
-      ]);
+    let squareC = this.animationCtrl.create()
+      .addElement(document.querySelector('.img_wrapper'))
+      .duration(1500)
+      .fromTo('transform', 'scale(0.0)', 'scale(0.8)')
+      .fromTo('opacity', '0.2', '2');
+    squareC.play();
 
-    const squareB = createAnimation()
-      .addElement(document.querySelectorAll('.img_wrapper'))
-      .duration(2000)
-      .keyframes([
-        { offset: 0, transform: 'scale(1))', background: 'green' },
-        { offset: 0.5, transform: 'scale(0.8)', background: '#fff' },
-        { offset: 1, transform: 'scale(1)', background: 'red' }
-      ]);
+    setTimeout(() => {
+      let squareA = this.animationCtrl.create()
+        .addElement(document.querySelector('.animate_text'))
+        .duration(1500)
+        .fromTo('transform', 'scale(0.0)', 'scale(1.5)')
+        .fromTo('opacity', '0.2', '2');
 
-    const parent = createAnimation()
-      // .duration(2000)
-      // .iterations(Infinity)
-      .addAnimation([squareA, squareB]);
-    parent.play();
+      squareA.play();
+    }, 1000)
+    setTimeout(() => {
+      this.router.navigate(['/home']);
+    }, 5000)
+
+
   }
 
 }
