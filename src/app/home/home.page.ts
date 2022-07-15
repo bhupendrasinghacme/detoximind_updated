@@ -12,7 +12,6 @@ export class HomePage implements AfterViewInit {
   All_items: any = [
     {
       title: "Journal",
-      describtion: " Journal apps are best suited for people who want a quick important memories. ",
       color: "#0F1B41",
       type: "journal",
       background: "#fff",
@@ -20,7 +19,6 @@ export class HomePage implements AfterViewInit {
     },
     {
       title: "Meditation",
-      describtion: "Meditation is the practice of intentionally spending time with our mind.",
       color: "#0F1B41",
       type: "meditation",
       background: "#fff",
@@ -28,7 +26,6 @@ export class HomePage implements AfterViewInit {
     },
     {
       title: "Ask Me Buddy",
-      describtion: "A buddy system is an onboarding and knowledge sharing method used to orient new employees.",
       color: "#0F1B41",
       type: "askmebuddy",
       background: "#fff",
@@ -36,7 +33,6 @@ export class HomePage implements AfterViewInit {
     },
     {
       title: "Chat Room",
-      describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations.",
       color: "#0F1B41",
       type: "chatpage",
       background: "#fff",
@@ -44,7 +40,6 @@ export class HomePage implements AfterViewInit {
     },
     {
       title: "Blogs",
-      describtion: "Stress can affect sleep quality. Many people lie awake worrying and feeling anxious, which hinders their ability to get to sleep. ",
       color: "#0F1B41",
       type: "blogs",
       background: "#fff",
@@ -52,7 +47,6 @@ export class HomePage implements AfterViewInit {
     },
     {
       title: "Workshop",
-      describtion: "Detoximind offers a safe space for tweens, teens and young adults who are grappling with stress, low self-esteem, bullying, anxiety or depression.",
       color: "#0F1B41",
       type: "workshop",
       background: "#fff",
@@ -60,11 +54,16 @@ export class HomePage implements AfterViewInit {
     },
     {
       title: "Helpline Number",
-      describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
       type: "helpline",
       color: "#0F1B41",
       img: "../../assets/helpline-num.jpg"
     },
+    {
+      title: "Websites",
+      type: "link",
+      color: "#0F1B41",
+      img: "../../assets/Logo.jpg"
+    }
   ]
   constructor(
     public router: Router,

@@ -21,25 +21,42 @@ ion-content {
       width: 100%;
     }
   }
+
   .bottom_section {
     background-image: url('../../assets/banner.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 10px;
+
     ion-card {
       margin: 0;
       background: transparent;
+      position: relative;
+
       h1 {
         text-align: center;
         color: #fff;
-        font-size: 18px;
+        font-size: 16px;
         text-transform: uppercase;
+        position: absolute;
         letter-spacing: 1px;
-        font-family: 'Abril Fatface', cursive;
+        font-family: "Abril Fatface", cursive;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      ion-img {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #fff;
+        opacity: 0.5;
+        cursor: pointer;
       }
     }
   }
-  
+
 }
 
 
@@ -52,4 +69,3 @@ select {
   color: inherit;
   text-align: center;
 }
-
