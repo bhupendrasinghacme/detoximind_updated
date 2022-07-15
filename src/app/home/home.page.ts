@@ -78,7 +78,7 @@ export class HomePage implements AfterViewInit {
         .duration(1000)
         .delay(index * (1000 / 3))
         .easing('cubic-bezier(0.4,0.0,0.2,0.1)')
-        .fromTo('transform', 'scale(0)', 'scale(1)')
+        .fromTo('transform', 'scale(0)', 'scale(0.8)')
         .fromTo('opacity', '0.2', '2')
         .play();
 
@@ -88,9 +88,11 @@ export class HomePage implements AfterViewInit {
   openScreens(nav) {
     if (nav == "helpline") {
       this.router.navigate([`/openpage`, '14158']);
-    } else if (nav == "workshop") {
-      this.router.navigate([`/openpage`, '13']);
-    } else {
+    }
+    // else if (nav == "workshop") {
+    //   this.router.navigate([`/openpage`, '13']);
+    // }
+    else {
       this.router.navigate([`/${nav}`]);
     }
 

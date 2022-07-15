@@ -8,13 +8,6 @@
 </ion-header>
 
 <ion-content>
-  <div class="all_category_div_wrapper">
-    <div id="default_clicked" *ngFor="let category of Categories_data" (click)="getPostDataCat_id(category.id)"
-      class="inactive active_{{category.id}}">
-      {{category.name}}
-    </div>
-
-  </div>
   <div>
     <ion-card *ngFor="let post of posts" class="post-card" [routerLink]="['/post', post.id]">
       <ion-card-header>

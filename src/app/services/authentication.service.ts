@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap, switchMap } from 'rxjs/operators';
 import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -31,6 +31,18 @@ export class AuthenticationService {
   }
 
   login(credentials: { username, password }): Observable<any> {
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+        'Accept': 'application/json, text/plain',
+        "cache-control": "no-cache",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Accept, Authorization, X-Request-With, Access-Control-Request-Method, Access-Control-Request-Headers",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS, TRACE, PATCH, CONNECT",
+      })
+    };
     return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, credentials).pipe(
       map((data: any) => {
         console.log("get data------->", data);
