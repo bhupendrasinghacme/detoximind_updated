@@ -9,13 +9,14 @@
         <h2>Detoximind</h2>
     </div>
     <div class="bottom_section">
-        <ion-row class="bottom_section_row" *ngFor="let item of All_items">
-            <ion-col size="6"><ion-card (click)="openScreens(item.type)" class="card-img-wrap">
-                
-                <ion-img class="image_icon" src="{{item.img}}"></ion-img>  
-                <h1>{{item.title}}</h1>
-        </ion-card></ion-col>
-            
-    </ion-row>
+        <ion-row>
+            <ion-col size="6" class="bottom_section_row" *ngFor="let item of All_items">
+                <ion-card (click)="openScreens(item.type)" class="card-img-wrap">
+
+                    <ion-img class="image_icon" src="{{item.img}}"></ion-img>
+                    <h1>{{item.title}}</h1>
+                </ion-card>
+            </ion-col>
+        </ion-row>
     </div>
 </ion-content>

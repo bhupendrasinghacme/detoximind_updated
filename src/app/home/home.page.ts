@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationController } from '@ionic/angular';
 import { createAnimation, Animation } from '@ionic/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { createAnimation, Animation } from '@ionic/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
   All_items: any = [
     {
       title: "Journal",
@@ -59,41 +60,29 @@ export class HomePage {
     },
     {
       title: "Helpline Number",
-     describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
+      describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
       type: "helpline",
       color: "#0F1B41",
       img: "../../assets/helpline-num.jpg"
     },
   ]
   constructor(
-    public router: Router
+    public router: Router,
+    private animationCtrl: AnimationController
   ) {
-    setTimeout(() => {
-      const squareA = createAnimation()
-        .addElement(document.querySelectorAll('.image_icon'))
-        .keyframes([
-          { offset: 0, transform: 'scale(1) rotate(0)' },
-          { offset: 0.5, transform: 'scale(1.2) rotate(45deg)' },
-          { offset: 1, transform: 'scale(1) rotate(45deg)' }
-        ]);
 
-      const squareC = createAnimation()
-        .addElement(document.querySelectorAll('.image_icon'))
-        .duration(2000)
-        .keyframes([
-          { offset: 0, transform: 'scale(1))', color: 'green' },
-          { offset: 0.5, transform: 'scale(0.8)', color: 'blue' },
-          { offset: 1, transform: 'scale(1)', color: 'red' }
-        ]);
-
-      const parent = createAnimation()
-        .duration(2000)
-        .iterations(Infinity)
-        .addAnimation([squareA, squareC]);
-      // parent.play();
-    }, 1000)
-
-
+  }
+  ngAfterViewInit() {
+    const squareC = this.animationCtrl.create()
+      .addElement(document.querySelector(".bottom_section_row"))
+      .fill('none')
+      .duration(1000)
+      .keyframes([
+        { offset: 0, transform: 'scale(1)', opacity: '0.5' },
+        { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
+        { offset: 1, transform: 'scale(1)', opacity: '0.5' }
+      ]);
+    squareC.play();
 
   }
 

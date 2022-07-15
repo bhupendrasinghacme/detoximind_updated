@@ -1,0 +1,26 @@
+ion-content {
+    --background: #0F1B41;
+    --color: #fff;
+
+    .main_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+        .img_wrapper {
+            width: 200px;
+            height: auto;
+
+            ion-img {
+                width: 100%;
+                height: auto;
+            }
+
+            h1 {
+                text-align: center;
+                transform: scale(0.0);
+            }
+        }
+    }
+}
