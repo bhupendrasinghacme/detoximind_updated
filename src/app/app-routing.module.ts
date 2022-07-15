@@ -83,6 +83,10 @@ const routes: Routes = [
     loadChildren: () => import('./splash/splash.module').then(m => m.SplashPageModule),
     canLoad: [AuthGuard] // Secure all child pages
   },
+  {
+    path: 'workshop',
+    loadChildren: () => import('./workshop/workshop.module').then( m => m.WorkshopPageModule)
+  },
 ];
 
 @NgModule({
