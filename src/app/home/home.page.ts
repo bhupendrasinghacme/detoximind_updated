@@ -10,27 +10,20 @@ import { createAnimation, Animation } from '@ionic/core';
 export class HomePage {
   All_items: any = [
     {
-      title: "Helpline Number",
-     describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
-      type: "helpline",
-      color: "#0F1B41",
-      img: "../../assets/helpline-num.jpg"
-    },
-    {
-      title: "Chat Room",
-      describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations.",
-      color: "#0F1B41",
-      type: "chatroom",
-      background: "#fff",
-      img: "../../assets/chat-room.jpg"
-    },
-    {
       title: "Journal",
       describtion: " Journal apps are best suited for people who want a quick important memories. ",
       color: "#0F1B41",
       type: "journal",
       background: "#fff",
       img: "../../assets/journal.jpg"
+    },
+    {
+      title: "Meditation",
+      describtion: "Meditation is the practice of intentionally spending time with our mind.",
+      color: "#0F1B41",
+      type: "meditation",
+      background: "#fff",
+      img: "../../assets/meditation.jpg"
     },
     {
       title: "Ask Me Buddy",
@@ -41,12 +34,12 @@ export class HomePage {
       img: "../../assets/ask-me-buddy.jpg"
     },
     {
-      title: "Meditation",
-      describtion: "Meditation is the practice of intentionally spending time with our mind.",
+      title: "Chat Room",
+      describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations.",
       color: "#0F1B41",
-      type: "meditation",
+      type: "chatroom",
       background: "#fff",
-      img: "../../assets/meditation.jpg"
+      img: "../../assets/chat-room.jpg"
     },
     {
       title: "Blogs",
@@ -64,7 +57,13 @@ export class HomePage {
       background: "#fff",
       img: "../../assets/workshop.jpg"
     },
-
+    {
+      title: "Helpline Number",
+     describtion: "National Suicide Prevention Lifeline: (800) 273-8255 and/or Text HOME to 741741",
+      type: "helpline",
+      color: "#0F1B41",
+      img: "../../assets/helpline-num.jpg"
+    },
   ]
   constructor(
     public router: Router
