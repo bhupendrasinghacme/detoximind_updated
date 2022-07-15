@@ -38,7 +38,7 @@ export class HomePage implements AfterViewInit {
       title: "Chat Room",
       describtion: "Chat rooms are areas in which people can gather to engage in real-time conversations.",
       color: "#0F1B41",
-      type: "chatroom",
+      type: "chatpage",
       background: "#fff",
       img: "../../assets/chat-room.jpg"
     },
@@ -73,17 +73,17 @@ export class HomePage implements AfterViewInit {
 
   }
   ngAfterViewInit() {
-    const squareC = this.animationCtrl.create()
-      .addElement(document.querySelector(".bottom_section_row"))
-      .fill('none')
-      .duration(1000)
-      .keyframes([
-        { offset: 0, transform: 'scale(1)', opacity: '0.5' },
-        { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
-        { offset: 1, transform: 'scale(1)', opacity: '0.5' }
-      ]);
-    squareC.play();
+    document.querySelectorAll(".bottom_section_row").forEach((item, index) => {
+      this.animationCtrl.create()
+        .addElement(item)
+        .duration(1000)
+        .delay(index * (1000 / 3))
+        .easing('cubic-bezier(0.4,0.0,0.2,0.1)')
+        .fromTo('transform', 'scale(0)', 'scale(1)')
+        .fromTo('opacity', '0.2', '2')
+        .play();
 
+    })
   }
 
   openScreens(nav) {
