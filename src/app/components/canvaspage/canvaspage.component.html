@@ -1,18 +1,30 @@
 <div>
   <ion-row>
     <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
-      (click)="selectColor(color)"></ion-col>
+      (click)="selectColor($event,color)"></ion-col>
+    <span class="color-block errager_cls" tappable (click)="selectColor($event,'#fff')">
+      <ion-icon class="icon" name="trash-outline"></ion-icon>
+    </span>
   </ion-row>
-  <ion-radio-group [(ngModel)]="selectedColor">
-    <ion-row>
+
+  <!-- <ion-radio-group [(ngModel)]="selectedColor"> -->
+  <!-- <ion-row>
       <ion-col *ngFor="let color of colors" class="ion-text-center">
         <ion-radio [value]="color"></ion-radio>
       </ion-col>
-    </ion-row>
-    <ion-radio [value]="errager"></ion-radio>
-  </ion-radio-group>
+    </ion-row> -->
+  <ion-row>
+    <ion-col>
+      <ion-tab-button (click)="saveImage()">
+        <ion-icon name="save-outline"></ion-icon>
+        <ion-label>Save</ion-label>
+      </ion-tab-button>
+    </ion-col>
+  </ion-row>
 
-  <ion-range min="2" max="20" color="primary" [(ngModel)]="lineWidth">
+  <!-- </ion-radio-group> -->
+
+  <ion-range min="2" max="50" color="primary" [(ngModel)]="lineWidth">
     <ion-icon size="small" slot="start" name="brush"></ion-icon>
     <ion-icon slot="end" name="brush"></ion-icon>
   </ion-range>

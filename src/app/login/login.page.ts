@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   credentials: FormGroup;
-
+  showPassword: any = true;
+  inputType: String = "password";
   constructor(
     private fb: FormBuilder,
     private authService: AuthenticationService,
@@ -69,13 +70,22 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  // Easy access for form fields
   get email() {
     return this.credentials.get('email');
   }
 
   get password() {
     return this.credentials.get('password');
+  }
+
+  hidePassword() {
+    // event.stopPropagation();
+    this.showPassword = true;
+    this.inputType = "password";
+  }
+  showinputPassword() {
+    this.showPassword = false;
+    this.inputType = "text";
   }
 
   // ngAfterContentInit()  {

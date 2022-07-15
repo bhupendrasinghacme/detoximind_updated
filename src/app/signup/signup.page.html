@@ -10,6 +10,15 @@
         <span *ngIf="email.errors?.email">Email is invalid</span>
       </div>
     </div>
+    <!-- <div class="input-group">
+      <ion-item>
+        <ion-input type="test" placeholder="Mobile No." formControlName="mobile"></ion-input>
+      </ion-item>
+      <div *ngIf="(mobile.dirty || mobile.touched) && mobile.errors" class="errors">
+        <span *ngIf="mobile.errors?.required">Email is required</span>
+        <span *ngIf="mobile.errors?.email">mobile is invalid</span>
+      </div>
+    </div> -->
     <div class="input-group">
       <ion-item>
         <ion-input type="text" placeholder="User Name" formControlName="username"></ion-input>

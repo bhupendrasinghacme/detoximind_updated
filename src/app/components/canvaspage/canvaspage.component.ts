@@ -22,7 +22,8 @@ export class CanvaspageComponent implements AfterViewInit {
     // Set the Canvas Element and its size
     this.canvasElement = this.canvas.nativeElement;
     this.canvasElement.width = this.plt.width() + '';
-    this.canvasElement.height = 500;
+    this.canvasElement.height = 400;
+    document.querySelectorAll(".color-block")[0].classList.add('active')
   }
 
   startDrawing(ev) {
@@ -36,8 +37,17 @@ export class CanvaspageComponent implements AfterViewInit {
     this.drawing = false;
   }
 
-  selectColor(color) {
+  selectColor(evt, color) {
+    document.querySelectorAll(".color-block").forEach(item => {
+      item.classList.remove("active");
+    })
+    if (evt.target.classList.contains('icon')) {
+      evt.target.parentNode.classList.add('active');
+    } else {
+      evt.target.classList.add('active');
+    }
     this.selectedColor = color;
+
   }
 
   setBackground() {
@@ -54,28 +64,22 @@ export class CanvaspageComponent implements AfterViewInit {
     if (this.drawing) {
       var canvasPosition = this.canvasElement.getBoundingClientRect()
       let ctx = this.canvasElement.getContext('2d');
-      // console.log(ev, canvasPosition);
-      // return
       let currentX = ev.pageX - this.canvasElement.getBoundingClientRect().x;
       let currentY = ev.pageY - this.canvasElement.getBoundingClientRect().y;
 
       ctx.lineJoin = 'round';
       ctx.strokeStyle = this.selectedColor;
       ctx.lineWidth = this.lineWidth;
-
       ctx.beginPath();
       ctx.moveTo(this.saveX, this.saveY);
       ctx.lineTo(currentX, currentY);
       ctx.closePath();
-
       ctx.stroke();
-
       this.saveX = currentX;
       this.saveY = currentY;
-      console.log(this.canvasElement);
+      // console.log(this.canvasElement);
     }
   }
-
 
   // https://forum.ionicframework.com/t/save-base64-encoded-image-to-specific-filepath/96180/3
   b64toBlob(b64Data, contentType) {
@@ -99,6 +103,19 @@ export class CanvaspageComponent implements AfterViewInit {
 
     var blob = new Blob(byteArrays, { type: contentType });
     return blob;
+  }
+  saveImage() {
+    var dataURL = this.canvasElement.toDataURL("image/png");
+    console.log(dataURL);
+
+    // var reader = new FileReader();
+    // reader.onload = function (event) {
+    //   var res = event.target.result;
+    //   console.log(res)
+    // }
+    // var file = dataURL;
+    // reader.readAsDataURL(file)
+    // console.log(reader)
   }
 
 
