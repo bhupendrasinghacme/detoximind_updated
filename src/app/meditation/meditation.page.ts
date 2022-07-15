@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -9,12 +10,27 @@ import { PostService } from '../services/post.service';
 export class MeditationPage implements OnInit {
   posts: any;
   constructor(
-    private postService: PostService
+    private postService: PostService,
+    public loadingController: LoadingController
   ) { }
 
   ngOnInit() {
-    this.postService.getPostDataPage(41, 1).subscribe(item => {
+    this.getPost();
+  }
+
+  async getPost() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      spinner: 'lines-sharp'
+    });
+    await loading.present();
+    this.postService.getPostDataPage(41, 1).subscribe(async item => {
       this.posts = item;
+      await loading.dismiss();
+    }, async error => {
+      console.log(error)
+      await loading.dismiss();
     })
   }
 

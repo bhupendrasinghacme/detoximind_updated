@@ -16,4 +16,8 @@ export class JournalService {
   createNewNotes(data): Observable<any> {
     return this.http.post(environment.wordpress.api_url + "wp-json/wp/v2/journal_notes/form", JSON.stringify(data));
   }
+
+  getTextNotes(email): Observable<any> {
+    return this.http.get(environment.wordpress.api_url + "wp-json/wp/v2/journal_notes/email?email=priyamehrotra02@gmail.com");
+  }
 }

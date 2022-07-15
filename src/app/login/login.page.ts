@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
-// import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +18,7 @@ export class LoginPage implements OnInit {
     private authService: AuthenticationService,
     private alertController: AlertController,
     private router: Router,
-    private loadingController: LoadingController,
-    // public menuCtrl: MenuController
+    private loadingController: LoadingController
   ) { }
 
   ngOnInit() {
@@ -44,10 +42,12 @@ export class LoginPage implements OnInit {
     console.log("credentials---->",)
     this.authService.login(all_data_login).subscribe(
       async (res) => {
+        console.log(res)
         await loading.dismiss();
-        this.router.navigateByUrl('/home', { replaceUrl: true });
+        this.router.navigateByUrl('/splash', { replaceUrl: true });
       },
       async (err) => {
+        console.log(err)
         await loading.dismiss();
         if (err.error.code === "invalid_username") {
           this.presentDataAlert("User Name is not correct.");
