@@ -7,9 +7,11 @@
     <div class="bottom_section">
         <ion-row>
             <ion-col size="6" class="bottom_section_row" *ngFor="let item of All_items">
-                <ion-card *ngIf="item.type==link else other_card" class="card-img-wrap">
-                    <a href = "http://www.detoximind.com/"><ion-img class="image_icon" src="{{item.img}}"></ion-img></a>
+                <ion-card *ngIf="item.type=='link' else other_card" class="card-img-wrap">
+                    <a href="http://www.detoximind.com/">
+                        <ion-img class="image_icon" src="{{item.img}}"></ion-img>
                     <h1>{{item.title}}</h1>
+                </a>
                 </ion-card>
             <ng-template #other_card>
                 <ion-card (click)="openScreens(item.type)" class="card-img-wrap">

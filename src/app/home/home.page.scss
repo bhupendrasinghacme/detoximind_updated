@@ -1,9 +1,10 @@
 ion-content {
-  --background: #0F1B41;
+  --background: url('../../assets/banner.jpeg');
   --color: #fff;
 
   .upper_Section {
     display: flex;
+    background: #0F1B41;
     align-items: center;
     width: 100%;
     justify-content: center;
@@ -23,7 +24,7 @@ ion-content {
   }
 
   .bottom_section {
-    background-image: url('../../assets/banner.jpeg');
+    // background-image: url('../../assets/banner.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 40px 10px;
