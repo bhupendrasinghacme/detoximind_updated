@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { JournalService } from 'src/app/services/journal.service';
 
@@ -8,6 +8,8 @@ import { JournalService } from 'src/app/services/journal.service';
   styleUrls: ['./createnote.component.scss'],
 })
 export class CreatenoteComponent implements OnInit {
+  @Input() item = '';
+
   content: any;
   title: any;
   email: any;
@@ -21,7 +23,10 @@ export class CreatenoteComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.item);
+  }
+
   addNewNotes() {
     let data = {
       email: this.email,
