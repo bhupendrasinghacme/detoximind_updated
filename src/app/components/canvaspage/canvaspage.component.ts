@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, ViewChild, Output, EventEmitter, } from '@angular/core';
-import { Platform, ToastController } from '@ionic/angular';
+import { LoadingController, Platform, ToastController } from '@ionic/angular';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { JournalService } from 'src/app/services/journal.service';
 @Component({
   selector: 'app-canvaspage',
   templateUrl: './canvaspage.component.html',
@@ -17,7 +19,20 @@ export class CanvaspageComponent implements AfterViewInit {
   errager = "#fff";
   drawing: any = false;
   lineWidth = 5;
-  constructor(private plt: Platform, private toastCtrl: ToastController) { }
+  image_url: any;
+  title: any;
+  email: any;
+  constructor(
+    private plt: Platform,
+    private toastCtrl: ToastController,
+    private journal: JournalService,
+    private auth: AuthenticationService,
+    private loadingController: LoadingController
+  ) {
+    this.auth.getUserData().then((data) => {
+      this.email = JSON.parse(data['value']).email;
+    })
+  }
 
   ngAfterViewInit() {
     // Set the Canvas Element and its size
@@ -105,19 +120,29 @@ export class CanvaspageComponent implements AfterViewInit {
     var blob = new Blob(byteArrays, { type: contentType });
     return blob;
   }
-  saveImage() {
+  async saveImage() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+      spinner: 'lines-sharp'
+    });
+    await loading.present();
     var dataURL = this.canvasElement.toDataURL("image/png");
-    console.log(dataURL);
-
-    // var reader = new FileReader();
-    // reader.onload = function (event) {
-    //   var res = event.target.result;
-    //   console.log(res)
-    // }
-    // var file = dataURL;
-    // reader.readAsDataURL(file)
-    // console.log(reader)
+    this.image_url = dataURL.split(',')[1];
+    let data = {
+      email: this.email,
+      title: this.title,
+      image_url: this.image_url
+    }
+    this.journal.createNewNotes(data).subscribe(async item => {
+      console.log(item);
+      await loading.dismiss();
+    }, async error => {
+      console.log(error);
+      await loading.dismiss();
+    })
   }
+
 
   closeModel() {
     this.changeCompoents.emit({ type: 'noteDraw' });
