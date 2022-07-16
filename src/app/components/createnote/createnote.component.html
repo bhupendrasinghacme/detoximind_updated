@@ -3,6 +3,10 @@
     <ion-buttons slot="start">
       <ion-button (click)="closeModel()">Close</ion-button>
     </ion-buttons>
+    <ion-buttons slot="end" *ngIf="!type" (click)="deleteNotes(id)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 <div class="ionic_editor_wrapper">
@@ -18,10 +22,13 @@
         <textarea placeholder="Please Enter Description" rows="10" [(ngModel)]="content"></textarea>
       </div>
       <div class="button-padding">
-        <div class="button-add" (click)="addNewNotes()">Add</div>
+        <div class="button-add" (click)="addNewNotes()" *ngIf="type else editbtn">Add</div>
+        <ng-template #editbtn>
+          <div class="button-add" (click)="editNotes(id)">Update</div>
+        </ng-template>
       </div>
     </div>
-    
+
   </div>
   <div class="ionic-editor-footer"></div>
 </div>

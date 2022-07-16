@@ -10,9 +10,11 @@ import { JournalService } from 'src/app/services/journal.service';
 export class CreatenoteComponent implements OnInit {
   @Input() item = '';
   @Output() changeCompoents: EventEmitter<any> = new EventEmitter();
-  content: any;
-  title: any;
-  email: any;
+  content: any = "";
+  title: any = "";
+  email: any = "";
+  id: any = "";
+  type: boolean = true;
   constructor(
     private auth: AuthenticationService,
     private journal: JournalService
@@ -24,7 +26,12 @@ export class CreatenoteComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.item);
+    if (this.item) {
+      this.type = false;
+      this.id = this.item['id'];
+      this.title = this.item['title'];
+      this.content = this.item['content'];
+    }
   }
 
   addNewNotes() {
@@ -39,6 +46,34 @@ export class CreatenoteComponent implements OnInit {
       console.log(error);
     })
   }
+
+  editNotes(data_id) {
+    let data = {
+      id: data_id,
+      email: this.email,
+      title: this.title,
+      content: this.content
+    }
+    this.journal.updateNotes(data).subscribe(item => {
+      console.log(item);
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  deleteNotes(data_id) {
+    let data = {
+      id: data_id,
+      email: this.email,
+    }
+    this.journal.deleteNotes(data).subscribe(item => {
+      console.log(item);
+      this.closeModel();
+    }, error => {
+      console.log(error);
+    })
+  }
+
 
   closeModel() {
     this.changeCompoents.emit({ type: 'notes' });
