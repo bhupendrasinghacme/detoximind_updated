@@ -6,13 +6,6 @@
       <ion-icon class="icon" name="trash-outline"></ion-icon>
     </span>
   </ion-row>
-
-  <!-- <ion-radio-group [(ngModel)]="selectedColor"> -->
-  <!-- <ion-row>
-      <ion-col *ngFor="let color of colors" class="ion-text-center">
-        <ion-radio [value]="color"></ion-radio>
-      </ion-col>
-    </ion-row> -->
   <ion-row>
     <ion-col>
       <ion-tab-button (click)="saveImage()">
@@ -21,9 +14,6 @@
       </ion-tab-button>
     </ion-col>
   </ion-row>
-
-  <!-- </ion-radio-group> -->
-
   <ion-range min="2" max="50" color="primary" [(ngModel)]="lineWidth">
     <ion-icon size="small" slot="start" name="brush"></ion-icon>
     <ion-icon slot="end" name="brush"></ion-icon>
@@ -32,7 +22,18 @@
     <canvas #imageCanvas (mousedown)="startDrawing($event)" (touchstart)="startDrawing($event)"
       (touchmove)="moved($event)" (mousemove)="moved($event)" (mouseup)="endDrawing()"
       (touchend)="endDrawing()"></canvas>
-
   </div>
-
+  <div class="ionic_editor_wrapper">
+    <div class="ionic_editor_header">
+      <img src="../../../assets/pic-header.png" alt="">
+    </div>
+    <div class="ionic_editor">
+      <div class="main_div">
+        <canvas #imageCanvas (mousedown)="startDrawing($event)" (touchstart)="startDrawing($event)"
+          (touchmove)="moved($event)" (mousemove)="moved($event)" (mouseup)="endDrawing()"
+          (touchend)="endDrawing()"></canvas>
+      </div>
+    </div>
+    <div class="ionic-editor-footer"></div>
+  </div>
 </div>

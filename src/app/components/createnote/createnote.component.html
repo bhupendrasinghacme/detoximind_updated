@@ -1,17 +1,20 @@
 <div class="ionic_editor_wrapper">
-  <!-- <img src="../../../assets/Purple(2).png" alt=""> -->
   <div class="ionic_editor_header">
-
+    <img src="../../../assets/pic-header.png" alt="">
   </div>
   <div class="ionic_editor">
-    <div>
-      <input type="text" placeholder="Please Enter Title" [(ngModel)]="title" />
+    <div class="ionic-editor_content">
+      <div>
+        <input type="text" placeholder="Please Enter Title" [(ngModel)]="title" />
+      </div>
+      <div>
+        <textarea placeholder="Please Enter Description" rows="10" [(ngModel)]="content"></textarea>
+      </div>
+      <div class="button-padding">
+        <div class="button-add" (click)="addNewNotes()">Add</div>
+      </div>
     </div>
-    <div>
-      <textarea placeholder="Please Enter Description" [(ngModel)]="content"></textarea>
-    </div>
-    <div class="button-add" (click)="addNewNotes()">Add</div>
+    
   </div>
   <div class="ionic-editor-footer"></div>
 </div>
-

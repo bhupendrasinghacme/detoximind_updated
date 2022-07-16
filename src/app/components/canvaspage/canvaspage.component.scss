@@ -27,3 +27,151 @@ canvas {
     align-items: center;
     justify-content: center;
 }
+
+input:focus {
+    outline: 0;
+    border: none;
+    box-shadow: none;
+}
+
+textarea:focus {
+    outline: 0;
+    border: none;
+    box-shadow: none;
+}
+
+
+
+
+
+// .ionic_editor_wrapper {
+//     position: relative;
+
+//     img {
+//         object-fit: cover;
+//     }
+
+//     .button-add,
+//     input,
+//     textarea {
+//         padding: 10px;
+//         font-size: 16px;
+//     }
+
+//     .button-add {
+//         margin: 20px auto;
+//         width: 140px;
+//         color: #fff;
+//         text-align: center;
+//         border-radius: 30px;
+//         font-weight: 500;
+//         background: #0F1B41;
+//         text-transform: uppercase;
+//         cursor: pointer;
+//     }
+
+//     .ionic_editor {
+//         border: 3px solid rgb(211, 205, 205);
+//         color: #0F1B41;
+//         background-color: #fff;
+//         position: absolute;
+//         top: 16%;
+//         left: 10px;
+//         right: 10px;
+//         margin: 0 auto;
+//         &:before {
+//             content: url('../../../assets/Picture1.png');
+//             position: absolute;
+//             right: 0;
+//             top: 0;
+//         }
+//     }
+
+//     input {
+//         width: 100%;
+//         border: none;
+//         background-color: #fff;
+//         border-bottom: 1px solid #000;
+//     }
+
+//     textarea {
+//         width: 100%;
+//         border: none;
+//         background-color: #fff;
+//     }
+// }
+.ionic_editor_wrapper {
+    background-image: url("../../../assets/Purple(2).png");
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+
+    .ionic_editor_header {
+        text-align: center;
+        position: relative;
+        padding-top: 10px;
+        &::after {
+            position: absolute;
+            content: url(../../../assets/purple-right.png);
+            top: 5px;
+            right: -41px;
+            overflow: hidden;
+            transform: rotate(-290deg);
+        }
+    }
+
+    .ionic_editor {
+        background-image: url('../../../assets/bg-img.png');
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: cover;
+        position: relative;
+        z-index: 9;
+        padding-top: 20%;
+
+        div {
+            text-align: center;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border-radius: 5px;
+            background: #fff;
+            border: none;
+            font-size: 14px;
+            color: #000;
+            font-weight: 500;
+            margin-top: 20px;
+            width: 60%;
+            border-radius: 5px;
+        }
+.button-padding {
+    padding-bottom: 20px;
+}
+        .button-add {
+            background: #111F48;
+            padding: 15px 10px;
+            border-radius: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            width: 100%;
+            max-width: 150px;
+            margin: 20px auto;
+            border-radius: 30px;
+        }
+    }
+
+    .ionic-editor-footer {
+        position: relative;
+
+        &:before {
+            position: absolute;
+            content: url(../../../assets/purple-bottom.png);
+            top: -97px;
+            left: -107px;
+            z-index: 0;
+        }
+    }
+}

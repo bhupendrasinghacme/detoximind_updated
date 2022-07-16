@@ -73,4 +73,75 @@ textarea:focus {
 .ionic_editor_wrapper {
     background-image: url("../../../assets/Purple(2).png");
     background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+
+    .ionic_editor_header {
+        text-align: center;
+        position: relative;
+        padding-top: 10px;
+        &::after {
+            position: absolute;
+            content: url(../../../assets/purple-right.png);
+            top: 5px;
+            right: -41px;
+            overflow: hidden;
+            transform: rotate(-290deg);
+        }
+    }
+
+    .ionic_editor {
+        background-image: url('../../../assets/bg-img.png');
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: cover;
+        position: relative;
+        z-index: 9;
+        padding-top: 20%;
+
+        div {
+            text-align: center;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border-radius: 5px;
+            background: #fff;
+            border: none;
+            font-size: 14px;
+            color: #000;
+            font-weight: 500;
+            margin-top: 20px;
+            width: 60%;
+            border-radius: 5px;
+        }
+.button-padding {
+    padding-bottom: 20px;
+}
+        .button-add {
+            background: #111F48;
+            padding: 15px 10px;
+            border-radius: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            width: 100%;
+            max-width: 150px;
+            margin: 20px auto;
+            border-radius: 30px;
+        }
+    }
+
+    .ionic-editor-footer {
+        position: relative;
+
+        &:before {
+            position: absolute;
+            content: url(../../../assets/purple-bottom.png);
+            top: -97px;
+            left: -107px;
+            z-index: 0;
+        }
+    }
 }
