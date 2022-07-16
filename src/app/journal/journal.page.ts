@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
+import { JournalService } from '../services/journal.service';
 
 @Component({
   selector: 'app-journal',
@@ -7,12 +9,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JournalPage implements OnInit {
   segmentModel: any = 'note';
-  constructor() { }
+  email: any;
+  data: any;
+  openDraw: boolean = false;
+  openNote: boolean = false
+  constructor(
+    private journalService: JournalService,
+    private auth: AuthenticationService
+  ) {
+    this.auth.getUserData().then(itm => {
+      this.email = JSON.parse(itm['value']).email;
+      this.getDataAll(this.email);
+    })
+  }
 
   ngOnInit() {
+
   }
   segmentChanged(evt: any) {
     this.segmentModel = evt.detail.value;
+  }
+
+  getDataAll(email) {
+    this.journalService.getTextNotes(email).subscribe(item => {
+      this.data = item;
+    });
+  }
+  openNotes(item) {
+    console.log(item);
+    this.openNote = true;
+  }
+  changeNotes(evt: any) {
+    if (evt.type === "notes") {
+      this.openNote = false;
+    }
+
+    if (evt.type === "noteDraw") {
+      this.openDraw = false;
+    }
   }
 
 }

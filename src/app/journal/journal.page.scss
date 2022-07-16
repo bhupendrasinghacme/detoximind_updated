@@ -15,3 +15,9 @@ ion-toolbar {
 ion-segment-button {
     --color: #fff;
 }
+
+::ng-deep ion-fab.md.fab-horizontal-end.fab-vertical-bottom.fab-edge.hydrated {
+    position: absolute;
+    bottom: 36px;
+    right: 16px;
+}

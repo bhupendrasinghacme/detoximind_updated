@@ -1,3 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModel()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <div>
   <ion-row>
     <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Output, EventEmitter, } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-canvaspage',
@@ -7,6 +7,7 @@ import { Platform, ToastController } from '@ionic/angular';
 })
 export class CanvaspageComponent implements AfterViewInit {
   @ViewChild('imageCanvas', { static: false }) canvas: any;
+  @Output() changeCompoents: EventEmitter<any> = new EventEmitter();
   canvasElement: any;
   saveX: number;
   saveY: number;
@@ -116,6 +117,10 @@ export class CanvaspageComponent implements AfterViewInit {
     // var file = dataURL;
     // reader.readAsDataURL(file)
     // console.log(reader)
+  }
+
+  closeModel() {
+    this.changeCompoents.emit({ type: 'noteDraw' });
   }
 
 
