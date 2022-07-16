@@ -91,14 +91,9 @@ textarea:focus {
     }
 
     .ionic_editor {
-        background-image: url('../../../assets/bg-img.png');
-        background-repeat: no-repeat;
-        width: 100%;
-        background-size: cover;
         position: relative;
-        z-index: 9;
-        padding-top: 20%;
-
+        top: 50px;
+        background: #fff;
         div {
             text-align: center;
         }
@@ -107,7 +102,7 @@ textarea:focus {
         textarea {
             padding: 10px;
             border-radius: 5px;
-            background: #fff;
+            // background: #fff;
             border: none;
             font-size: 14px;
             color: #000;
@@ -131,11 +126,6 @@ textarea:focus {
             margin: 20px auto;
             border-radius: 30px;
         }
-    }
-
-    .ionic-editor-footer {
-        position: relative;
-
         &:before {
             position: absolute;
             content: url(../../../assets/purple-bottom.png);
@@ -144,4 +134,11 @@ textarea:focus {
             z-index: 0;
         }
     }
+
+    .ionic-editor-footer {
+        position: relative;
+        z-index: -1;
+
+       
+    } 
 }

@@ -10,9 +10,7 @@ canvas {
     padding: 10px;
 }
 
-canvas {
-    background: #fff;
-}
+
 
 .color-block.active {
     border: 4px solid #fff;
@@ -105,18 +103,32 @@ textarea:focus {
     background-repeat: no-repeat;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+    z-index: 9999;
 
     .ionic_editor_header {
         text-align: center;
         position: relative;
         padding-top: 10px;
+
         &::after {
             position: absolute;
             content: url(../../../assets/purple-right.png);
-            top: 5px;
-            right: -41px;
             overflow: hidden;
             transform: rotate(-290deg);
+            top: -18%;
+            right: -16%;
+            z-index: 1;
+            transform: scale(.5);
+        }
+
+        &::before {
+            position: absolute;
+            content: url(../../../assets/hand.png);
+            top: 49%;
+            left: -7%;
+            z-index: 1;
+            transform: scale(0.5);
         }
     }
 
@@ -128,6 +140,26 @@ textarea:focus {
         // position: relative;
         // z-index: 9;
         // padding-top: 20%;
+        position: relative;
+        top: 50px;
+
+        &::after {
+            position: absolute;
+            content: url(../../../assets/song.png);
+            top: -7%;
+            right: -7%;
+            z-index: 1;
+            transform: scale(0.5);
+        }
+
+        &::before {
+            position: absolute;
+            content: url(../../../assets/dice.png);
+            bottom: -18%;
+            right: -16%;
+            z-index: 1;
+            transform: scale(.5);
+        }
 
         div {
             text-align: center;
@@ -146,9 +178,11 @@ textarea:focus {
             width: 60%;
             border-radius: 5px;
         }
-.button-padding {
-    padding-bottom: 20px;
-}
+
+        .button-padding {
+            padding-bottom: 20px;
+        }
+
         .button-add {
             background: #111F48;
             padding: 15px 10px;
@@ -161,10 +195,16 @@ textarea:focus {
             margin: 20px auto;
             border-radius: 30px;
         }
+
+        canvas {
+            background: #fff;
+            background: #fff;
+        }
     }
 
     .ionic-editor-footer {
         position: relative;
+        z-index: -1;
 
         &:before {
             position: absolute;
@@ -172,6 +212,19 @@ textarea:focus {
             top: -97px;
             left: -107px;
             z-index: 0;
+        }
+    }
+
+    .main_div {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: url(../../../assets/smile-box.png);
+            bottom: -18%;
+            left: -16%;
+            z-index: 1;
+            transform: scale(.5);
         }
     }
 }
