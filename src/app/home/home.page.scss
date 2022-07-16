@@ -10,6 +10,9 @@ ion-content {
     justify-content: center;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     padding: 15px;
+    position: sticky;
+      top: 0;
+      z-index: 999;
 
     ion-icon {
       position: absolute;
