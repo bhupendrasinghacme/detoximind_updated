@@ -22,8 +22,8 @@ export class CanvaspageComponent implements AfterViewInit {
   ngAfterViewInit() {
     // Set the Canvas Element and its size
     this.canvasElement = this.canvas.nativeElement;
-    this.canvasElement.width = this.plt.width() + '';
-    this.canvasElement.height = 400;
+    // this.canvasElement.width = this.plt.width() + '';
+    // this.canvasElement.height = 200;
     document.querySelectorAll(".color-block")[0].classList.add('active')
   }
 
