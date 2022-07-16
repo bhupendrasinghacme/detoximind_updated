@@ -1,29 +1,14 @@
-<ion-header>
+<ion-header *ngIf="openDraw === false && openNote === false">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-segment (ionChange)="segmentChanged($event)" value="javascript">
-      <ion-segment-button value="note">
-        <ion-label>Note</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="draw_img">
-        <ion-label>Draw</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    <ion-title>Notes List</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<!-- <ion-content> -->
-<!-- <div contenteditable="true" id="text" name="text" class="text" wrap="hard">
-    <div class="upload" contenteditable="true">
-      <img id="output" />
-    </div>
-  </div> -->
-
-<ion-content>
+<ion-content *ngIf="openDraw === false && openNote === false" [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let item of data">
+    <ion-item *ngFor="let item of data" (click)="openNotes(item)">
       <ion-avatar slot="start">
         <img src="../../assets/Logo.jpg" />
       </ion-avatar>
@@ -32,14 +17,27 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" edge>
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="light">
+        <ion-icon name="eyedrop-outline" (click)="openDraw=true"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light">
+        <ion-icon name="book-outline" (click)="openNote=true"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
 
+  </ion-fab>
 </ion-content>
-<ion-content *ngIf="segmentModel === 'draw_img'" [forceOverscroll]="false">
-  <app-canvaspage></app-canvaspage>
-</ion-content>
-
-<ion-content *ngIf="segmentModel === 'note'">
-  <app-createnote></app-createnote>
+<ion-content *ngIf="openDraw === true && openNote === false" [forceOverscroll]="false">
+  <app-canvaspage (changeCompoents)="changeNotes($event)"></app-canvaspage>
 </ion-content>
 
-<!-- </ion-content> -->
+<ion-content *ngIf="openDraw === false && openNote === true">
+  <app-createnote (changeCompoents)="changeNotes($event)"></app-createnote>
+</ion-content>

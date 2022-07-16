@@ -11,6 +11,8 @@ export class JournalPage implements OnInit {
   segmentModel: any = 'note';
   email: any;
   data: any;
+  openDraw: boolean = false;
+  openNote: boolean = false
   constructor(
     private journalService: JournalService,
     private auth: AuthenticationService
@@ -32,6 +34,19 @@ export class JournalPage implements OnInit {
     this.journalService.getTextNotes(email).subscribe(item => {
       this.data = item;
     });
+  }
+  openNotes(item) {
+    console.log(item);
+    this.openNote = true;
+  }
+  changeNotes(evt: any) {
+    if (evt.type === "notes") {
+      this.openNote = false;
+    }
+
+    if (evt.type === "noteDraw") {
+      this.openDraw = false;
+    }
   }
 
 }
