@@ -47,13 +47,14 @@ export class LoginPage implements OnInit {
         this.router.navigateByUrl('/splash', { replaceUrl: true });
       },
       async (err) => {
-        console.log(err)
+        // console.log("login error", err)
         await loading.dismiss();
         if (err.error.code === "invalid_username") {
           this.presentDataAlert("User Name is not correct.");
-        }
-        if (err.error.code === "incorrect_password") {
+        } else if (err.error.code === "incorrect_password") {
           this.presentDataAlert("Password is not correct.");
+        } else {
+          this.presentDataAlert(err.error.message);
         }
       }
     );
