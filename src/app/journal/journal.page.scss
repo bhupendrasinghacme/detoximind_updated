@@ -2,22 +2,69 @@
     display: inline-block
 }
 
+
+
+
+
+// ion-segment-button {
+//     --color: #fff;
+// }
+
+// ::ng-deep ion-fab.md.fab-horizontal-end.fab-vertical-bottom.fab-edge.hydrated {
+//     position: absolute;
+//     bottom: 36px;
+//     right: 16px;
+// }
+
+ion-header {
+    background: #0F1B41;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+    ion-back-button {
+        --color: #fff;
+    }
+
+    ion-title {
+        color: #fff;
+        font-size: 25px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Roboto", serif;
+        line-height: 2;
+    }
+
+    ion-toolbar {
+        --background: transparent;
+    }
+}
+
 ion-content {
     --background: #0F1B41;
-    --color: #fff;
-}
+    --color: #fff;;
+    --padding-top: 20px;
 
-ion-toolbar {
-    --background: #0F1B41;
-    --color: #fff;
-}
+    ion-list {
+        background: transparent;
+        margin: 20px 10px;
+        ion-item {
+            --background: transparent;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
 
-ion-segment-button {
-    --color: #fff;
-}
+            
 
-::ng-deep ion-fab.md.fab-horizontal-end.fab-vertical-bottom.fab-edge.hydrated {
-    position: absolute;
-    bottom: 36px;
-    right: 16px;
+            h2 {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-family: "Roboto", serif;
+                margin: 0;
+            }
+        }
+    }
+
+}
+::ng-deep .item-inner {
+    border: none;
 }
