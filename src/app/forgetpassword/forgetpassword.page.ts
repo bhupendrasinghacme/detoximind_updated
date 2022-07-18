@@ -12,7 +12,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./forgetpassword.page.scss'],
 })
 export class ForgetpasswordPage implements OnInit {
-  sendEmail: boolean = true;
+  sendEmail: boolean = false;
   email: any = '';
   token: any;
   credentials: FormGroup;
