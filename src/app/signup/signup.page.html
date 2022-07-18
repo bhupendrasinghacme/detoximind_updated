@@ -43,9 +43,11 @@
     </div>
     <div class="input-group">
       <ion-item>
-        <ion-input type="password" placeholder="Confirm Password" formControlName="confirm_password"></ion-input>
-        <ion-icon name="eye"></ion-icon>
-        <ion-icon name="eye-off"></ion-icon>
+        <ion-input [type]="inputType" placeholder="Confirm Password" formControlName="confirm_password"></ion-input>
+        <ion-icon name="eye-outline" *ngIf="showPassword else eyeOff" (click)="showinputPassword()"></ion-icon>
+        <ng-template #eyeOff>
+          <ion-icon name="eye-off-outline" (click)="hidePassword()"></ion-icon>
+        </ng-template>
       </ion-item>
       <div *ngIf="(confirm_password.dirty || confirm_password.touched) && confirm_password.errors" class="errors">
         <span *ngIf="confirm_password.errors?.required">Confirm Password is required</span>

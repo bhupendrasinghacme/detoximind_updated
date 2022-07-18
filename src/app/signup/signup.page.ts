@@ -15,7 +15,8 @@ import { AuthenticationService } from '../services/authentication.service';
 
 export class SignupPage implements OnInit {
   credentials: FormGroup;
-
+  showPassword: any = true;
+  inputType: String = "password";
   token: any;
   constructor(
     private fb: FormBuilder,
@@ -89,5 +90,13 @@ export class SignupPage implements OnInit {
   get confirm_password() {
     return this.credentials.get('confirm_password');
   }
-
+  hidePassword() {
+    // event.stopPropagation();
+    this.showPassword = true;
+    this.inputType = "password";
+  }
+  showinputPassword() {
+    this.showPassword = false;
+    this.inputType = "text";
+  }
 }

@@ -17,6 +17,9 @@ export class ForgetpasswordPage implements OnInit {
   token: any;
   credentials: FormGroup;
   credentialsEmail: FormGroup;
+ showPassword:any = true;
+ resetcode:any= '';
+inputType:any = "password";
   constructor(
     private forgetApi: ForgetService,
     private authService: AuthenticationService,
@@ -89,5 +92,15 @@ export class ForgetpasswordPage implements OnInit {
     });
     toast.present();
   }
-
+  hidePassword() {
+    this.showPassword = true;
+    this.inputType = "password";
+  }
+  showinputPassword() {
+    this.showPassword = false;
+    this.inputType = "text";
+  }
+  reset() {
+    this.resetcode = '';
+  }
 }
