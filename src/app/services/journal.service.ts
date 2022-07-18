@@ -42,6 +42,4 @@ export class JournalService {
     };
     return this.http.delete(environment.wordpress.api_url + "wp/v2/delete_journal_notes/email?email=" + data.email + "id=" + data.id, httpOptions);
   }
-
-
 }

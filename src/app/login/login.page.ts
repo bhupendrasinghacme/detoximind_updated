@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   inputType: String = "password";
   constructor(
     private fb: FormBuilder,
-    private authService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private alertController: AlertController,
     private router: Router,
     private loadingController: LoadingController
@@ -40,11 +40,11 @@ export class LoginPage implements OnInit {
       password: this.credentials.value.password
     }
     console.log("credentials---->",)
-    this.authService.login(all_data_login).subscribe(
+    this.authenticationService.login(all_data_login).subscribe(
       async (res) => {
         console.log(res)
         await loading.dismiss();
-        this.router.navigateByUrl('/splash', { replaceUrl: true });
+        this.router.navigateByUrl('/home', { replaceUrl: true });
       },
       async (err) => {
         // console.log("login error", err)
