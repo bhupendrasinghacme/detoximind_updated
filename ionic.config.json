@@ -3,5 +3,9 @@
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "server": {
+    "url": "http://localhost:8100",
+    "cleartext": true
+  }
 }

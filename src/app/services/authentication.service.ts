@@ -33,8 +33,8 @@ export class AuthenticationService {
   }
 
   login(credentials: { username, password }): Observable<any> {
-
-    return this.http.post("https://detoximinddev.wpengine.com/wp-json/jwt-auth/v1/token", credentials).pipe(
+    // https://detoximinddev.wpengine.com/
+    return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, credentials).pipe(
       map((data: any) => {
         console.log("get data------->", data);
         this.userData = data.data;

@@ -47,8 +47,14 @@ export class CanvaspageComponent implements AfterViewInit {
   startDrawing(ev) {
     this.drawing = true;
     var canvasPosition = this.canvasElement.getBoundingClientRect();
-    this.saveX = ev.pageX - this.canvasElement.getBoundingClientRect().x;
-    this.saveY = ev.pageY - this.canvasElement.getBoundingClientRect().y;
+    if (ev.pageX != undefined) {
+      this.saveX = ev.pageX - this.canvasElement.getBoundingClientRect().x;
+      this.saveY = ev.pageY - this.canvasElement.getBoundingClientRect().y;
+    }
+    if (ev.changedTouches != undefined) {
+      this.saveX = ev.changedTouches[0].pageX - this.canvasElement.getBoundingClientRect().x;
+      this.saveY = ev.changedTouches[0].pageY - this.canvasElement.getBoundingClientRect().y;
+    }
   }
 
   endDrawing() {
@@ -79,11 +85,22 @@ export class CanvaspageComponent implements AfterViewInit {
   }
 
   moved(ev) {
+
     if (this.drawing) {
-      var canvasPosition = this.canvasElement.getBoundingClientRect()
+      var currentX;
+      var currentY;
+      var canvasPosition = this.canvasElement.getBoundingClientRect();
       let ctx = this.canvasElement.getContext('2d');
-      let currentX = ev.pageX - this.canvasElement.getBoundingClientRect().x;
-      let currentY = ev.pageY - this.canvasElement.getBoundingClientRect().y;
+
+      if (ev.pageX != undefined) {
+        currentX = ev.pageX - this.canvasElement.getBoundingClientRect().x;
+        currentY = ev.pageY - this.canvasElement.getBoundingClientRect().y;
+      }
+
+      if (ev.changedTouches != undefined) {
+        currentX = ev.changedTouches[0].pageX - this.canvasElement.getBoundingClientRect().x;
+        currentY = ev.changedTouches[0].pageY - this.canvasElement.getBoundingClientRect().y;
+      }
 
       ctx.lineJoin = 'round';
       ctx.strokeStyle = this.selectedColor;
