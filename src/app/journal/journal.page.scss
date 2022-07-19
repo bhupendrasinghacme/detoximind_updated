@@ -2,15 +2,6 @@
     display: inline-block
 }
 
-
-
-
-
-// ion-segment-button {
-//     --color: #fff;
-// }
-
-
 ion-header {
     background: #0F1B41;
     padding: 20px 0;
@@ -37,7 +28,6 @@ ion-header {
 ion-content {
     --background: #0F1B41;
     --color: #fff;;
-    --padding-top: 20px;
 
     ion-list {
         background: transparent;
@@ -63,7 +53,7 @@ ion-content {
 ::ng-deep .item-inner {
     border: none;
 }
-::ng-deep ion-fab.ios.fab-horizontal-end.fab-vertical-bottom.fab-edge.hydrated {
+::ng-deep ion-fab {
     position: absolute;
     bottom: 30px;
     right: 20px;
