@@ -10,11 +10,6 @@
 //     --color: #fff;
 // }
 
-// ::ng-deep ion-fab.md.fab-horizontal-end.fab-vertical-bottom.fab-edge.hydrated {
-//     position: absolute;
-//     bottom: 36px;
-//     right: 16px;
-// }
 
 ion-header {
     background: #0F1B41;
@@ -67,4 +62,9 @@ ion-content {
 }
 ::ng-deep .item-inner {
     border: none;
+}
+::ng-deep ion-fab.ios.fab-horizontal-end.fab-vertical-bottom.fab-edge.hydrated {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
 }
