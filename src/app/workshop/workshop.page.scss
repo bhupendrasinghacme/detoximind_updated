@@ -1,6 +1,20 @@
-ion-toolbar {
-    --background: #0F1B41;
-    --color: #FFFAEA;
+ion-header {
+    ion-toolbar {
+        --background: #0F1B41;
+        --color: #FFFAEA;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        padding: 10px;
+    }
+
+    ion-back-button {
+        color: #fff;
+    }
+
+    ion-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
 }
 
 .ion-activated {
@@ -36,7 +50,18 @@ ion-card {
         color: #000;
     }
 }
-
+ion-content {
+    --background: #0C1A40;
+    img {
+        max-width: 200px;
+        margin: 30px auto;
+        display: block;
+        filter: brightness(8.5);
+    }
+    p {
+        color: #000;
+    }
+}
 ::ng-deep ion-card ion-icon {
     color: #fff;
 }

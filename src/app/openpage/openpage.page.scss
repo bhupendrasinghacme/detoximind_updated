@@ -1,6 +1,23 @@
-
+ion-header {
     ion-toolbar {
         --background: #0F1B41;
-        --color: #fff;
-    } 
+        --color: #FFFAEA;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        padding: 10px;
+    }
 
+    ion-back-button {
+        color: #fff;
+    }
+
+    ion-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-inline: 0;
+    }
+}
+ion-content {
+    --background: #0F1B41;
+    --color: #FFFAEA;
+}

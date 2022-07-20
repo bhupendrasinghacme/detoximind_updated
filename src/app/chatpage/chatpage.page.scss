@@ -17,7 +17,11 @@ ion-header {
     }
 }
 
+ion-content {
+    --background: #0F1B41;
+}
 ion-footer {
+    border-top: 1px solid #fff;
     ion-toolbar {
         --background: #0F1B41;
     }
@@ -30,9 +34,6 @@ ion-footer {
     }
 }
 
-ion-content.ios.overscroll.content-ltr.hydrated {
-    --background: #D3E7FF;
-}
 
 ::ng-deep .message {
     padding: 10px 30px;
