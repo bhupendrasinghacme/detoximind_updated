@@ -1,19 +1,30 @@
-ion-toolbar {
-    --background: #0F1B41;
-    --color: #FFFAEA;
+ion-header {
+    ion-toolbar {
+        --background: #0F1B41;
+        --color: #FFFAEA;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        padding: 10px;
+    }
+
+    ion-back-button {
+        color: #fff;
+    }
+
+    ion-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
 }
 
 ion-content {
     --background: #fff;
     --color: #000000;
 
-    ion-text.md.hydrated p {
-        padding: 0px 15px;
-        text-align: justify;
-        font-family: "Roboto Slab";
-        font-weight: 400;
-        font-style: normal;
-    }
+p {
+    text-align: center;
+}
+
 }
 
 ::ng-deep ion-content {
