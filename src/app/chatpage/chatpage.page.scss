@@ -1,6 +1,33 @@
-ion-toolbar {
-    --background: #0F1B41;
-    --color: #FFFAEA;
+ion-header {
+    ion-toolbar {
+        --background: #0F1B41;
+        --color: #FFFAEA;
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        padding: 10px;
+    }
+
+    ion-back-button {
+        color: #fff;
+    }
+
+    ion-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+ion-footer {
+    ion-toolbar {
+        --background: #0F1B41;
+    }
+
+    ion-icon {
+        color: #fff;
+    }
+    ion-row {
+        align-items: center;
+    }
 }
 
 ion-content.ios.overscroll.content-ltr.hydrated {

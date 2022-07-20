@@ -5,9 +5,13 @@ body {
 
 h1,
 h2,
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Abril Fatface', cursive;
 }
+
 ::ng-deep input:-webkit-autofill,
 
 ::ng-deep input:-webkit-autofill:hover,
@@ -35,3 +39,4 @@ h3, h4, h5, h6 {
     transition: background-color 5000s ease-in-out 0s;
 
 }
+

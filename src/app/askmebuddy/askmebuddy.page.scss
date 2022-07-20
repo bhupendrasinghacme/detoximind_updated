@@ -1,6 +1,12 @@
 ion-toolbar {
     --background: #0F1B41;
     --color: #FFFAEA;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+padding: 10px;
+
+    ion-back-button {
+        color: #fff;
+    }
 }
 
 // .text-feedback {
@@ -46,7 +52,16 @@ form {
     width: 100%;
     background: #0F1B41;
     padding: 20px;
-    height: 10%;
+    ion-row {
+        align-items: center;
+        justify-content: space-between;
+    }
+    ion-input {
+        border: 1px solid #fff;
+        --color: #fff !important;
+        --font-size: 14px;
+        --padding-start: 10px !important;
+    }
 
     ion-button {
         --background: #fff !important;

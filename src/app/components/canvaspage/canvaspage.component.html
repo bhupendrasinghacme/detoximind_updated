@@ -1,26 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="closeModel()">Close</ion-button>
+      <ion-button (click)="closeModel()">
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-button>
     </ion-buttons>
-    <ion-tab-button (click)="saveImage()" slot="end">
-      <ion-icon name="save-outline"></ion-icon>
-      <ion-label>Save</ion-label>
-    </ion-tab-button>
+    <ion-button (click)="saveImage()" slot="end" class="save-btn">Save</ion-button>
   </ion-toolbar>
 </ion-header>
-<div>
-  <ion-row>
-    <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
-      (click)="selectColor($event,color)"></ion-col>
-    <span class="color-block errager_cls" tappable (click)="selectColor($event,'#fff')">
-      <ion-icon class="icon" name="trash-outline"></ion-icon>
-    </span>
-  </ion-row>
-  <ion-range min="2" max="50" color="primary" [(ngModel)]="lineWidth">
+<div class="range-picker_wrap">
+  <img src="../../../assets/range-pick.png" alt="" (click)="rangeFunChange()" />
+  <img src="../../../assets/color-picker.png" alt="" (click)="colorFunChange()" />
+  <ion-range min="2" max="50" color="primary" [(ngModel)]="lineWidth" *ngIf="rangeFlag && !colorFlag">
     <ion-icon size="small" slot="start" name="brush"></ion-icon>
     <ion-icon slot="end" name="brush"></ion-icon>
   </ion-range>
+  <ion-row class="color-codes" *ngIf="colorFlag && !rangeFlag">
+    <div *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
+      (click)="selectColor($event,color)"></div>
+  </ion-row>
   <div class="ionic_editor_wrapper">
     <div class="ionic_editor_header">
       <img src="../../../assets/pic-header.png" alt="">

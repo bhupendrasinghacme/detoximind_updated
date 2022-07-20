@@ -27,6 +27,7 @@ export class MeditationPage implements OnInit {
     await loading.present();
     this.postService.getPostDataPage(41, 1).subscribe(async item => {
       this.posts = item;
+      console.log(item);
       await loading.dismiss();
     }, async error => {
       console.log(error)

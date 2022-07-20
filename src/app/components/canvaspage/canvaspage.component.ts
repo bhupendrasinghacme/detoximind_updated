@@ -13,9 +13,10 @@ export class CanvaspageComponent implements AfterViewInit {
   canvasElement: any;
   saveX: number;
   saveY: number;
-
+   rangeFlag:boolean = false;
+   colorFlag:boolean = false;
   selectedColor = '#9e2956';
-  colors = ['#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3'];
+  colors = ['#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3', '#FF5733', '#52FF33','#FF9C33','#FF33FF','#581845', '#DAF7A6', '#C70039', '#250825', '#28CDB6', '#2F952A', '#2F952A' ];
   errager = "#fff";
   drawing: any = false;
   lineWidth = 5;
@@ -167,5 +168,12 @@ export class CanvaspageComponent implements AfterViewInit {
     this.changeCompoents.emit({ type: 'noteDraw' });
   }
 
+
+  rangeFunChange(){
+   this.rangeFlag = !this.rangeFlag;
+  }
+colorFunChange(){
+  this.colorFlag = !this.colorFlag;
+  }
 
 }
