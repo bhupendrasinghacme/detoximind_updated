@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import { AuthenticationService } from '../services/authentication.service';
 import { JournalService } from '../services/journal.service';
 
@@ -16,7 +17,8 @@ export class JournalPage implements OnInit {
   selected_data: any;
   constructor(
     private journalService: JournalService,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private loadingCtrl: LoadingController
   ) {
     this.auth.getUserData().then(itm => {
       this.email = JSON.parse(itm['value']).email;
@@ -31,9 +33,18 @@ export class JournalPage implements OnInit {
     this.segmentModel = evt.detail.value;
   }
 
-  getDataAll(email) {
-    this.journalService.getTextNotes(email).subscribe(item => {
+  async getDataAll(email) {
+    const loading = await this.loadingCtrl.create({
+      message: 'please wait...',
+      spinner: 'lines-sharp'
+    });
+
+    loading.present();
+    this.journalService.getTextNotes(email).subscribe(async item => {
       this.data = item;
+      await loading.dismiss();
+    }, async error => {
+      await loading.dismiss();
     });
   }
   openNotes(item) {
@@ -49,6 +60,8 @@ export class JournalPage implements OnInit {
     if (evt.type === "noteDraw") {
       this.openDraw = false;
     }
+
+    this.getDataAll(this.email);
   }
   openFab(item) {
     this.selected_data = "";

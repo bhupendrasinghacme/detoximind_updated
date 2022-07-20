@@ -1,7 +1,9 @@
 import { Component, AfterViewInit, ViewChild, Output, EventEmitter, } from '@angular/core';
-import { LoadingController, Platform, ToastController } from '@ionic/angular';
+import { LoadingController, Platform, ToastController, AlertController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { JournalService } from 'src/app/services/journal.service';
+import { threadId } from 'worker_threads';
+
 @Component({
   selector: 'app-canvaspage',
   templateUrl: './canvaspage.component.html',
@@ -28,7 +30,8 @@ export class CanvaspageComponent implements AfterViewInit {
     private toastCtrl: ToastController,
     private journal: JournalService,
     private auth: AuthenticationService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private alertController: AlertController
   ) {
     this.auth.getUserData().then((data) => {
       this.email = JSON.parse(data['value']).email;
@@ -141,6 +144,7 @@ export class CanvaspageComponent implements AfterViewInit {
     return blob;
   }
   async saveImage() {
+
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
@@ -154,8 +158,10 @@ export class CanvaspageComponent implements AfterViewInit {
       title: this.title,
       image_url: this.image_url
     }
+
     this.journal.createNewNotes(data).subscribe(async item => {
       console.log(item);
+      this.presentToast(item);
       await loading.dismiss();
     }, async error => {
       console.log(error);
@@ -168,6 +174,34 @@ export class CanvaspageComponent implements AfterViewInit {
     this.changeCompoents.emit({ type: 'noteDraw' });
   }
 
+  async presentToast(message) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Please Enter Title',
+      buttons: [{
+        text: 'Submit',
+        role: 'confirm',
+        handler: (alertData) => {
+          this.title = alertData.title;
+          this.saveImage();
+        }
+      }],
+      inputs: [
+        {
+          placeholder: 'Title',
+          name: 'title',
+          type: 'text'
+        }
+      ]
+    });
+    await alert.present();
+  }
 
   rangeFunChange(){
    this.rangeFlag = !this.rangeFlag;

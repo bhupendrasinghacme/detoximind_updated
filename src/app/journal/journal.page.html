@@ -34,10 +34,10 @@
 
   </ion-fab>
 </ion-content>
-<ion-content *ngIf="openDraw === true && openNote === false" [forceOverscroll]="false">
+<ion-content *ngIf="openDraw === true && openNote === false" [forceOverscroll]="false" scroll="false">
   <app-canvaspage (changeCompoents)="changeNotes($event)"></app-canvaspage>
 </ion-content>
 
-<ion-content *ngIf="openDraw === false && openNote === true">
+<ion-content *ngIf="openDraw === false && openNote === true" scroll="false">
   <app-createnote [item]="selected_data" (changeCompoents)="changeNotes($event)"></app-createnote>
 </ion-content>
