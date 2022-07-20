@@ -1,7 +1,8 @@
 ion-content {
---background: url('../../assets/banner.jpeg');
+  --background: url('../../assets/banner.jpeg');
   --color: #fff;
-.upper_Section {
+
+  .upper_Section {
     display: flex;
     background: #0F1B41;
     align-items: center;
@@ -13,29 +14,39 @@ ion-content {
     top: 0;
     z-index: 999;
 
-  ion-icon {
+    ion-icon {
       position: absolute;
       right: 14px;
       font-size: 30px;
     }
+
     img {
       max-width: 120px;
       width: 100%;
     }
+  }
+
+  .bottom_section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 10px;
+
+    ion-col {
+      height: 200px;
+      padding: 0;
+
+      ion-img {
+        height: 200px;
+        object-fit: cover;
+      }
     }
 
-.bottom_section {
-  // background-image: url('../../assets/banner.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 40px 10px;
-
-  ion-card {
+    ion-card {
       margin: 0;
       background: transparent;
       position: relative;
 
-    h1 {
+      h1 {
         text-align: center;
         color: #fff;
         font-size: 16px;
@@ -49,15 +60,15 @@ ion-content {
         margin: auto;
       }
 
-        ion-img {
-          border-radius: 20px;
-          overflow: hidden;
-          border: 1px solid #fff;
-          opacity: 0.5;
-          cursor: pointer;
-        }
-        }
-        }
+      ion-img {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #fff;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
 
 }
 
@@ -66,7 +77,7 @@ form,
 input,
 optgroup,
 select {
-margin: 0;
+  margin: 0;
   font: inherit;
   color: inherit;
   text-align: center;
