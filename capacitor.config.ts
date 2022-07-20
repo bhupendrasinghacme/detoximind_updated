@@ -4,22 +4,7 @@ const config: CapacitorConfig = {
   appId: 'io.acmeintech.detoximind',
   appName: 'Detoximind',
   webDir: 'www',
-  bundledWebRuntime: false,
-  plugins: {
-
-    SplashScreen: {
-
-      launchShowDuration: 0,
-
-      backgroundColor: '#ffffffff',
-
-      launchAutoHide: false,
-
-      androidSplashResourceName: 'launch_splash',
-
-    }
-
-  }
+  bundledWebRuntime: false
 };
 
 export default config;

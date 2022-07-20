@@ -3,6 +3,7 @@ import { AskmebuddyService } from '../services/askmebuddy.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoadingController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-askmebuddy',
   templateUrl: './askmebuddy.page.html',
@@ -26,9 +27,10 @@ export class AskmebuddyPage implements OnInit {
       this.email = JSON.parse(item['value']).email;
     })
 
-    this.authenticationService.getAdminToken().subscribe(item => {
-      this.adminToken = item['data']['token'];
-    })
+    // this.authenticationService.getAdminToken().subscribe(item => {
+    //   this.adminToken = item['data']['token'];
+    // })
+    this.adminToken = environment.admin_token;
     this.ionicForm = this.fb.group({
       questionInput: ['', [Validators.required, Validators.minLength(10)]]
     });

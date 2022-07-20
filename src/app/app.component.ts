@@ -4,6 +4,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Network } from '@capacitor/network';
 import { AuthenticationService } from './services/authentication.service';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent {
     private _location: Location,
     private auth: AuthenticationService
   ) {
-
+    SplashScreen.hide();
     Network.addListener('networkStatusChange', status => {
       if (!status.connected) {
         this.networkStatus = true;
@@ -34,6 +35,7 @@ export class AppComponent {
     });
     this.logCurrentNetworkStatus();
     this.backButtonEvent();
+
   }
 
   async logCurrentNetworkStatus() {

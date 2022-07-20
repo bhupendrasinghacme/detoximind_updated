@@ -16,7 +16,8 @@ export const environment = {
   },
   wordpress: {
     api_url: "http://www.detoximind.com/"
-  }
+  },
+  admin_token: ""
 };
 
 /*

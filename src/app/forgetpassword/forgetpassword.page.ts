@@ -6,6 +6,8 @@ import { MustMatch } from '../helper/must-match.validator';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-forgetpassword',
   templateUrl: './forgetpassword.page.html',
@@ -17,9 +19,9 @@ export class ForgetpasswordPage implements OnInit {
   token: any;
   credentials: FormGroup;
   credentialsEmail: FormGroup;
- showPassword:any = true;
- resetcode:any= '';
-inputType:any = "password";
+  showPassword: any = true;
+  resetcode: any = '';
+  inputType: any = "password";
   constructor(
     private forgetApi: ForgetService,
     private authService: AuthenticationService,
@@ -40,9 +42,11 @@ inputType:any = "password";
     }, {
       validator: MustMatch('password', 'confirmPassword')
     });
-    this.authService.getAdminToken().subscribe(item => {
-      this.token = item['data']['token'];
-    })
+    // this.authService.getAdminToken().subscribe(item => {
+    //   this.token = item['data']['token'];
+
+    // })
+    this.token = environment.admin_token;
   }
   async sendEmailVerification() {
     const loading = await this.loadingController.create({

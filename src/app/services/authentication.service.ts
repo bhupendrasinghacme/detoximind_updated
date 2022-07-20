@@ -64,13 +64,13 @@ export class AuthenticationService {
   }
 
 
-  getAdminToken() {
-    let data = {
-      "username": "detoximinddev",
-      "password": "Det0x!m1nD792"
-    }
-    return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, data);
-  }
+  // getAdminToken() {
+  //   let data = {
+  //     "username": "detoximinddev",
+  //     "password": "Det0x!m1nD792"
+  //   }
+  //   return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, data);
+  // }
 
 
 
