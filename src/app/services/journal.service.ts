@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+// import { map, catchError, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -34,12 +34,8 @@ export class JournalService {
     };
     return this.http.put(environment.wordpress.api_url + "wp-json/wp/v2/update_journal_notes/email", data, httpOptions);
   }
+
   deleteNotes(data): Observable<any> {
-    let httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      })
-    };
-    return this.http.delete(environment.wordpress.api_url + "wp/v2/delete_journal_notes/email?email=" + data.email + "id=" + data.id, httpOptions);
+    return this.http.delete(environment.wordpress.api_url + "wp-json/wp/v2/delete_journal_notes/email?email=" + data.email + "&id=" + data.id);
   }
 }
