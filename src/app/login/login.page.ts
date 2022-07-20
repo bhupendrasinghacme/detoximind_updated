@@ -42,12 +42,10 @@ export class LoginPage implements OnInit {
     console.log("credentials---->",)
     this.authenticationService.login(all_data_login).subscribe(
       async (res) => {
-        console.log(res)
         await loading.dismiss();
         this.router.navigateByUrl('/home', { replaceUrl: true });
       },
       async (err) => {
-        // console.log("login error", err)
         await loading.dismiss();
         if (err.error.code === "invalid_username") {
           this.presentDataAlert("User Name is not correct.");
