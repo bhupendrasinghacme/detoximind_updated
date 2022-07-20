@@ -17,7 +17,7 @@ export const environment = {
   wordpress: {
     api_url: "http://www.detoximind.com/"
   },
-  admin_token: ""
+  admin_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC93d3cuZGV0b3hpbWluZC5jb20iLCJpYXQiOjE2NTgzMTk4MDUsIm5iZiI6MTY1ODMxOTgwNSwiZXhwIjoxNjU4OTI0NjA1LCJkYXRhIjp7InVzZXIiOnsiaWQiOjEsImRldmljZSI6IiIsInBhc3MiOiI2MDRlNGJlZDc3YjRjZTEyMjRjZWZiMjZkMTI3YmI5ZCJ9fX0.PQfvNC7WpIRGFNBmhhLgMLlezvs29JKmvC-1IuLkk7k"
 };
 
 /*
