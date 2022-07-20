@@ -22,7 +22,7 @@ export class AppComponent {
     private _location: Location,
     private auth: AuthenticationService
   ) {
-    SplashScreen.hide();
+    // SplashScreen.hide();
     Network.addListener('networkStatusChange', status => {
       if (!status.connected) {
         this.networkStatus = true;

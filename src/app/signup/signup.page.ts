@@ -38,9 +38,10 @@ export class SignupPage implements OnInit {
     }
 
     );
-    this.authService.getAdminToken().subscribe(item => {
-      this.token = item['data']['token'];
-    })
+    // this.authService.getAdminToken().subscribe(item => {
+    //   this.token = item['data']['token'];
+    // })
+    this.token = environment.admin_token;
   }
 
   async signup() {
