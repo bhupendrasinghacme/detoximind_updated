@@ -43,7 +43,7 @@ export class CanvaspageComponent implements AfterViewInit {
     this.canvasElement = this.canvas.nativeElement;
     // this.canvasElement.width = this.plt.width() + '';
     // this.canvasElement.height = 200;
-    this.canvasElement.width = 300;
+    this.canvasElement.width = 350;
     this.canvasElement.height = 400;
     document.querySelectorAll(".color-block")[0].classList.add('active')
   }
