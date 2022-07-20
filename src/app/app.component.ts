@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController, Platform } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Network } from '@capacitor/network';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
     public router: Router,
     private platform: Platform,
     private _location: Location,
+    private auth: AuthenticationService
   ) {
 
     Network.addListener('networkStatusChange', status => {
@@ -68,6 +70,7 @@ export class AppComponent {
     this.platform.backButton.subscribeWithPriority(10, () => {
       const path = window.location.pathname;
       if (path === '/home') {
+        this.auth.remove_journalAuth();
         navigator['app'].exitApp();
       } else {
         this._location.back();

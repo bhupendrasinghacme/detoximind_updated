@@ -1,7 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AnimationController } from '@ionic/angular';
-import { createAnimation, Animation } from '@ionic/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AlertController, AnimationController } from '@ionic/angular';
+import { AuthenticationService } from '../services/authentication.service';
+
 
 @Component({
   selector: 'app-home',
@@ -64,12 +65,29 @@ export class HomePage implements AfterViewInit {
       color: "#0F1B41",
       img: "../../assets/Logo.jpg"
     }
-  ]
+  ];
+  journal_login: boolean = false;
   constructor(
     public router: Router,
-    private animationCtrl: AnimationController
+    private animationCtrl: AnimationController,
+    private auth: AuthenticationService,
+    public alertController: AlertController,
+    public act_route: ActivatedRoute
   ) {
-
+    this.act_route.params.subscribe(itm => {
+      this.auth.getJournalPassword().then(item => {
+        if (item.value != null) {
+          this.journal_login = JSON.parse(item.value).journal_token;
+          console.log("act_router", this.journal_login);
+        }
+      })
+    });
+    this.auth.getJournalPassword().then(item => {
+      if (item.value != null) {
+        this.journal_login = JSON.parse(item.value).journal_token;
+      }
+    })
+    console.log("home-true", this.journal_login);
   }
   ngAfterViewInit() {
     document.querySelectorAll(".bottom_section_row").forEach((item, index) => {
@@ -89,14 +107,59 @@ export class HomePage implements AfterViewInit {
     if (nav == "helpline") {
       this.router.navigate([`/openpage`, '14158']);
     }
-    // else if (nav == "workshop") {
-    //   this.router.navigate([`/openpage`, '13']);
-    // }
+    else if (nav == "journal") {
+      this.journal_login ? this.router.navigate([`/journal`]) : this.presentAlert();
+    }
     else {
       this.router.navigate([`/${nav}`]);
     }
+  }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Journal Login',
+      inputs: [
+        {
+          placeholder: 'UserName',
+          name: 'username'
+        },
+        {
+          type: 'text',
+          placeholder: 'Password',
+          name: 'password'
+        }
+      ],
+      buttons: [
+        'cancel',
+        {
+          text: 'login',
+          handler: data => {
+            if (data.username == '' && data.password == '') {
+              this.presentAlertMessage("Please Enter Email and password");
+            } else {
+              this.auth.jounalLogin(data).subscribe(itm => {
+                this.router.navigate([`/journal`]);
+              }, error => {
+                this.presentAlertMessage(error.error.message)
+              })
+            }
 
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async presentAlertMessage(meg) {
+    const alert = await this.alertController.create({
+      header: 'Error Message :-',
+      message: meg,
+      buttons: ['Ok']
+    });
+
+    await alert.present();
   }
 
 }

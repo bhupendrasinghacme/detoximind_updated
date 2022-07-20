@@ -52,6 +52,7 @@ export class AuthenticationService {
 
   logout(): Promise<void> {
     this.isAuthenticated.next(false);
+    this.remove_journalAuth();
     return Storage.remove({ key: TOKEN_KEY });
   }
   getUserData() {
@@ -69,5 +70,28 @@ export class AuthenticationService {
       "password": "Det0x!m1nD792"
     }
     return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, data);
+  }
+
+
+
+
+  jounalLogin(credentials: { username, password }): Observable<any> {
+    // https://detoximinddev.wpengine.com/
+    return this.http.post(`${environment.wordpress.api_url}wp-json/jwt-auth/v1/token`, credentials).pipe(
+      map((data: any) => {
+        this.userData = data.data;
+        Storage.set({ key: "user_data", value: JSON.stringify(this.userData) })
+        Storage.set({ key: "journal_login", value: JSON.stringify({ journal_token: true }) })
+        from(Storage.set({ key: TOKEN_KEY, value: data.data.token }));
+        return this.userData;
+      })
+    )
+  }
+
+  getJournalPassword() {
+    return Storage.get({ key: "journal_login" });
+  }
+  remove_journalAuth() {
+    return Storage.remove({ key: "journal_login" });
   }
 }
