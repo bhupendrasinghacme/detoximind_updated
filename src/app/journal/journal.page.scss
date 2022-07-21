@@ -52,6 +52,10 @@ ion-content {
     ion-avatar {
         --color: #fff;
     }
+  
+    // ion-icon {
+    //     color: #fff;
+    // }
 }
 ::ng-deep .item-inner {
     border: none;
@@ -65,4 +69,9 @@ ion-fab-button{
     --background: #fff;
     --color: #000;
     font-weight: 900;
+}
+ion-avatar {
+    ion-icon {
+        color: #fff;
+    }
 }
