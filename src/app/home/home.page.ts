@@ -63,9 +63,10 @@ export class HomePage implements AfterViewInit {
       title: "Websites",
       type: "link",
       color: "#0F1B41",
-      img: "../../assets/Logo.jpg"
+      img: "../../assets/website-img.avif"
     }
   ];
+  user_name: any;
   journal_login: boolean = false;
   constructor(
     public router: Router,
@@ -86,6 +87,11 @@ export class HomePage implements AfterViewInit {
       if (item.value != null) {
         this.journal_login = JSON.parse(item.value).journal_token;
       }
+    })
+
+
+    this.auth.getUserData().then(item => {
+      this.user_name = JSON.parse(item.value)['displayName'];
     })
 
   }
@@ -119,10 +125,10 @@ export class HomePage implements AfterViewInit {
     const alert = await this.alertController.create({
       header: 'Journal Login',
       inputs: [
-        {
-          placeholder: 'UserName',
-          name: 'username'
-        },
+        // {
+        //   placeholder: 'UserName',
+        //   name: 'username'
+        // },
         {
           type: 'text',
           placeholder: 'Password',
@@ -134,10 +140,10 @@ export class HomePage implements AfterViewInit {
         {
           text: 'login',
           handler: data => {
-            if (data.username == '' && data.password == '') {
+            if (this.user_name == '' && data.password == '') {
               this.presentAlertMessage("Please Enter Email and password");
             } else {
-              this.auth.jounalLogin(data).subscribe(itm => {
+              this.auth.jounalLogin({ username: this.user_name, password: data.password }).subscribe(itm => {
                 this.router.navigate([`/journal`]);
               }, error => {
                 this.presentAlertMessage(error.error.message)
