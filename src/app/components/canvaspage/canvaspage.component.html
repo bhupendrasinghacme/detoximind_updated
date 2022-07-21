@@ -14,31 +14,34 @@
     </ion-buttons>
     <!-- <img src="../../assets/Logo.jpg" alt=""> -->
     <div class="range-bg">
-     
+
       <img src="../../../assets/range-pick.png" alt="" (click)="rangeFunChange()" />
       <img src="../../../assets/color-picker.png" alt="" (click)="colorFunChange()" />
-      <ion-button (click)="saveImage()" slot="end" class="save-btn">Save</ion-button> 
-      
-  
+      <ion-button (click)="presentAlert()" slot="end" class="save-btn">Save</ion-button>
+
+
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
 
   <div class="range-picker_wrap">
-    <ion-range min="2" max="50" color="primary" [(ngModel)]="lineWidth" *ngIf="rangeFlag && !colorFlag">
+    <ion-row class="range-wrapper" *ngIf="rangeFlag && !colorFlag">
+      <div (click)="closeButtons('rangeFlag')" class="closeRange">
+        <ion-icon name="close-circle"></ion-icon>
+      </div>
+      <ion-range min="2" max="50" color="primary" [(ngModel)]="lineWidth">
         <ion-icon size="small" slot="start" name="brush"></ion-icon>
         <ion-icon slot="end" name="brush"></ion-icon>
       </ion-range>
-      <ion-row class="color-codes" *ngIf="colorFlag && !rangeFlag">
-        
-          <div (click)="closeModel()" class="close">
-            <!-- <ion-icon name="close-circle"></ion-icon> -->
-          </div>
-       
-        <div *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
-          (click)="selectColor($event,color)"></div>
-      </ion-row>
+    </ion-row>
+    <ion-row class="color-codes" *ngIf="colorFlag && !rangeFlag">
+      <div (click)="closeButtons('colorFlag')" class="closeColor">
+        <ion-icon name="close-circle"></ion-icon>
+      </div>
+      <div *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
+        (click)="selectColor($event,color)"></div>
+    </ion-row>
     <div class="ionic_editor_wrapper">
       <div class="ionic_editor_header">
         <img src="../../../assets/pic-header.png" alt="">

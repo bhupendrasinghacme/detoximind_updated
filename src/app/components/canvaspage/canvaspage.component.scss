@@ -1,6 +1,7 @@
 canvas {
     border: 1px solid rgb(187, 178, 178);
 }
+
 input:focus {
     outline: 0;
     border: none;
@@ -60,18 +61,18 @@ ion-header {
     // right: 0;
     margin: 0 auto;
     background: url('../../../assets/purple-right.png');
-        background-repeat: no-repeat;
-        background-size: 150px;
-        top: 0;
-        background-position: right;
-        width: 100%;
-        height: 150px;
-   
+    background-repeat: no-repeat;
+    background-size: 150px;
+    top: 0;
+    background-position: right;
+    width: 100%;
+    height: 150px;
+
     .ionic_editor_header {
         text-align: center;
         position: relative;
         padding: 20px;
-    
+
         &::before {
             position: absolute;
             content: url(../../../assets/hand.png);
@@ -148,8 +149,8 @@ ion-header {
         position: relative;
         background: url('../../../assets/purple-bottom.png');
         background-size: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
+        height: 100px;
+        background-repeat: no-repeat;
     }
 
     .main_div {
@@ -203,19 +204,21 @@ ion-header {
         background: #000;
     }
 
-    
+
 }
 
 ion-content {
     --background: #D2E4FC;
+
     .range-bg {
-        
+
 
         img {
             max-width: 40px;
             width: 100%;
         }
     }
+
     ion-button {
         --background: transparent;
         --color: #000;
@@ -229,40 +232,69 @@ ion-content {
 
     }
 }
+
 .range-bg {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    
+
     img {
-    max-width: 40px;
-    width: 100%;
-}
-.close {
-    position: absolute;
-    right: 21px;
-    top: 61px;
-    width: 22px;
-    height: 22px;
-  }
- 
-  .close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 20px;
-    width: 2px;
-    background-color: #fff;
-  }
-  .close:before {
-    transform: rotate(45deg);
-  }
-  .close:after {
-    transform: rotate(-45deg);
-  }
+        max-width: 40px;
+        width: 100%;
+    }
+
+    .close {
+        position: absolute;
+        right: 21px;
+        top: 61px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 20px;
+        width: 2px;
+        background-color: #fff;
+    }
+
+    .close:before {
+        transform: rotate(45deg);
+    }
+
+    .close:after {
+        transform: rotate(-45deg);
+    }
 }
 
 ion-range {
     flex-basis: auto;
     width: 100%;
+}
+
+.range-wrapper {
+    width: 100%;
+}
+
+.closeColor {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 0px;
+    right: 15px;
+}
+
+.closeRange {
+    background-color: #000;
+    width: 100%;
+
+    ion-icon {
+        color: #fff;
+        font-size: 30px;
+        float: right;
+        margin-right: 10px;
+    }
 }
