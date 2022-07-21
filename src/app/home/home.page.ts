@@ -124,6 +124,7 @@ export class HomePage implements AfterViewInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Journal Login',
+      cssClass:'custom-alert',
       inputs: [
         // {
         //   placeholder: 'UserName',

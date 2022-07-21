@@ -82,3 +82,19 @@ select {
   color: inherit;
   text-align: center;
 }
+
+::ng-deep .custom-alert {
+  .alert-wrapper {
+    padding: 20px;
+  }
+
+  .alert-head {
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  .alert-input-group {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
