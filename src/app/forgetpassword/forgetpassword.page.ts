@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./forgetpassword.page.scss'],
 })
 export class ForgetpasswordPage implements OnInit {
-  sendEmail: boolean = false;
+  sendEmail: boolean = true;
   email: any = '';
   token: any;
   credentials: FormGroup;

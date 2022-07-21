@@ -87,7 +87,7 @@ export class HomePage implements AfterViewInit {
         this.journal_login = JSON.parse(item.value).journal_token;
       }
     })
-    console.log("home-true", this.journal_login);
+
   }
   ngAfterViewInit() {
     document.querySelectorAll(".bottom_section_row").forEach((item, index) => {

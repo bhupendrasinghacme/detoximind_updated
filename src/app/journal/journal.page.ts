@@ -42,6 +42,7 @@ export class JournalPage implements OnInit {
     loading.present();
     this.journalService.getTextNotes(email).subscribe(async item => {
       this.data = item;
+      console.log(this.data);
       await loading.dismiss();
     }, async error => {
       await loading.dismiss();
