@@ -22,7 +22,9 @@ export class AppComponent {
     private _location: Location,
     private auth: AuthenticationService
   ) {
-    // SplashScreen.hide();
+    this.platform.ready().then(async () => {
+      await SplashScreen.hide();
+    });
     Network.addListener('networkStatusChange', status => {
       if (!status.connected) {
         this.networkStatus = true;
@@ -36,7 +38,10 @@ export class AppComponent {
     this.logCurrentNetworkStatus();
     this.backButtonEvent();
 
+
   }
+
+
 
   async logCurrentNetworkStatus() {
     const status = await Network.getStatus();
