@@ -3,6 +3,7 @@ ion-header {
         padding-right: 20px;
         font-size: 30px;
     }
+
     ion-toolbar {
         --background: #0F1B41;
         --color: #FFFAEA;
@@ -20,6 +21,7 @@ ion-header {
         letter-spacing: 2px;
     }
 }
+
 ion-content {
     --background: #0F1B41;
     --color: #fff;
@@ -42,6 +44,7 @@ ion-content {
     }
 
 }
+
 ion-toolbar {
     --color: #FFFAEA;
 }
@@ -107,11 +110,10 @@ ion-card {
 }
 
 .close_btn {
-    font-size: 24px;
+    font-size: 30px;
     position: absolute;
-    top: 10px;
-    right: 17px;
-    opacity: 1;
+   top: 0;
+    right: 0;
 }
 
 ::ng-deep ion-card-title.ion-inherit-color.md.hydrated {
@@ -134,10 +136,29 @@ ion-card ion-item {
     line-height: 20px;
 }
 
+
+
+ion-card {
+    --background: #0F1B41;
+    --color: #fff;
+    text-align: center;
+
+    ion-card-title,
+    ion-card-subtitle {
+        color: #fff;
+    }
+
+    ion-button {
+        --background: #fff;
+        --color: #000;
+    }
+}
+
 .profile_svg_wrapper {
-    width: 70%;
-    padding: 64px 36px 46px 36px;
-    margin: auto;
+    max-width: 200px;
+    padding: 0;
+    margin: 20px auto;
+    width: 100%;
 
     svg {
         width: 100%;
@@ -145,16 +166,34 @@ ion-card ion-item {
     }
 }
 
-ion-card {
-    --background: #0F1B41;
-    --color: #fff;
-    text-align: center;
-    ion-card-title,
-    ion-card-subtitle {
-        color: #fff;
-    }
-    ion-button {
-        --background: #fff;
-        --color: #000;
+.main-body-profile {
+
+    ion-card {
+        margin: 0;
+
+        ion-card-header {
+            padding: 0;
+        }
+
+        form {
+            ion-label {
+                color: #fff;
+            }
+            ion-input {
+                --color: #fff
+            }
+        }
+        ion-card-content {
+            padding: 0;
+        }
+
+        ion-card-title {
+            text-align: left;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 18px;
+            padding-left: 20px;
+        }
     }
 }
