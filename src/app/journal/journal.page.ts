@@ -14,6 +14,7 @@ export class JournalPage implements OnInit {
   data: any;
   openDraw: boolean = false;
   openNote: boolean = false;
+  openDrawViewer: any = false;
   selected_data: any;
   constructor(
     private journalService: JournalService,
@@ -49,7 +50,6 @@ export class JournalPage implements OnInit {
     });
   }
   openNotes(item) {
-    // console.log(item);
     this.selected_data = item;
     this.openNote = true;
   }
@@ -57,11 +57,12 @@ export class JournalPage implements OnInit {
     if (evt.type === "notes") {
       this.openNote = false;
     }
-
     if (evt.type === "noteDraw") {
       this.openDraw = false;
     }
-
+    if (evt.type === "image-viewer") {
+      this.openDrawViewer = false;
+    }
     this.getDataAll(this.email);
   }
   openFab(item) {
@@ -73,6 +74,10 @@ export class JournalPage implements OnInit {
       this.openDraw = true;
       this.openNote = false;
     }
+  }
+  openDrawPanal(item) {
+    this.selected_data = item;
+    this.openDrawViewer = true;
   }
 
 }

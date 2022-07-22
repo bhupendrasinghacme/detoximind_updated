@@ -1,4 +1,4 @@
-<ion-header *ngIf="openDraw === false && openNote === false">
+<ion-header *ngIf="openDraw === false && openNote === false && openDrawViewer === false">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
@@ -6,9 +6,10 @@
     <ion-title>Notes List</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content *ngIf="openDraw === false && openNote === false" [fullscreen]="true">
+<ion-content *ngIf="openDraw === false && openNote === false && openDrawViewer === false" [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let item of data" (click)="openNotes(item)">
+    <ion-item *ngFor="let item of data"
+      (click)="item.image_url == ''&& item.content !=''?openNotes(item):openDrawPanal(item)">
       <ion-avatar slot="start">
         <ion-icon name="book"></ion-icon>
       </ion-avatar>
@@ -34,10 +35,14 @@
 
   </ion-fab>
 </ion-content>
-<ion-content *ngIf="openDraw === true && openNote === false" [forceOverscroll]="false" scroll="false">
+<ion-content *ngIf="openDraw === true && openNote === false && openDrawViewer === false" [forceOverscroll]=" false"
+  scroll="false">
   <app-canvaspage (changeCompoents)="changeNotes($event)"></app-canvaspage>
 </ion-content>
 
 <ion-content *ngIf="openDraw === false && openNote === true" scroll="false">
   <app-createnote [item]="selected_data" (changeCompoents)="changeNotes($event)"></app-createnote>
+</ion-content>
+<ion-content *ngIf="openDraw === false && openNote === false && openDrawViewer === true" scroll="false">
+  <app-imageviewer [item]="selected_data" (changeCompoents)="changeNotes($event)"></app-imageviewer>
 </ion-content>

@@ -2,7 +2,6 @@ import { Component, AfterViewInit, ViewChild, Output, EventEmitter, } from '@ang
 import { LoadingController, Platform, ToastController, AlertController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { JournalService } from 'src/app/services/journal.service';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-canvaspage',

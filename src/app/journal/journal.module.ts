@@ -9,6 +9,7 @@ import { JournalPageRoutingModule } from './journal-routing.module';
 import { JournalPage } from './journal.page';
 import { CanvaspageComponent } from '../components/canvaspage/canvaspage.component';
 import { CreatenoteComponent } from '../components/createnote/createnote.component';
+import { ImageviewerComponent } from '../components/imageviewer/imageviewer.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { CreatenoteComponent } from '../components/createnote/createnote.compone
     IonicModule,
     JournalPageRoutingModule
   ],
-  declarations: [JournalPage, CanvaspageComponent, CreatenoteComponent]
+  declarations: [JournalPage, CanvaspageComponent, CreatenoteComponent, ImageviewerComponent]
 })
 export class JournalPageModule { }
