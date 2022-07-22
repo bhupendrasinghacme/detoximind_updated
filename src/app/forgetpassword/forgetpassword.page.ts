@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./forgetpassword.page.scss'],
 })
 export class ForgetpasswordPage implements OnInit {
-  sendEmail: boolean = true;
+  sendEmail: boolean = false;
   email: any = '';
   token: any;
   credentials: FormGroup;
@@ -36,7 +36,8 @@ export class ForgetpasswordPage implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     })
     this.credentials = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      
       confirmPassword: ['', [Validators.required]],
       restCode: ['', [Validators.required, Validators.minLength(4)]]
     }, {
