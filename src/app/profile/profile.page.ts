@@ -82,14 +82,23 @@ export class ProfilePage implements OnInit {
       spinner: 'lines-sharp'
     });
     await loading.present();
-    let userData = { password: this.changeData.value.new_password };
-    console.log(this.changeData.value.old_password);
-    this.userupdateService.updateUserProfile(this.user_Data.id, userData).subscribe(async item => {
-      console.log("item=====>", item);
+
+    this.authService.jounalLogin({ username: this.email, password: this.changeData.value.old_password }).subscribe(item => {
+      let userData = { password: this.changeData.value.new_password };
+      console.log(this.changeData.value.old_password);
+      this.userupdateService.updateUserProfile(this.user_Data.id, userData).subscribe(async item => {
+        console.log("item=====>", item);
+        await loading.dismiss();
+        this.changeData.reset();
+        this.presentToast("Change User password Successfully.");
+        this.closeEditor();
+      }, error => {
+        console.log(error)
+      });
+
+    }, async error => {
       await loading.dismiss();
-      this.changeData.reset();
-      this.presentToast("Change User password Successfully.");
-      this.closeEditor();
+      this.presentToast("old password is not correct.");
     })
   }
 
