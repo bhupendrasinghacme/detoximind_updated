@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
 import { PostService } from '../services/post.service';
 import { CustomloaderService } from '../services/customloader.service';
 
@@ -23,14 +22,14 @@ export class BlogsPage implements OnInit {
   }
 
   async getPost() {
-    this.loadingController.showLoader();
+    await this.loadingController.showLoader();
     this.postService.getPostDataPage(62, 1).subscribe(async item => {
       this.posts = item;
       this.blocklength = item.blocklength;
-      // await loading.dismiss();
+      await this.loadingController.hideLoader();
     }, async error => {
       console.log(error);
-      this.loadingController.hideLoader();
+      await this.loadingController.hideLoader();
     })
   }
 

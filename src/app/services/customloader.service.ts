@@ -4,15 +4,12 @@ import { LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class CustomloaderService {
-  loader: any;
+
   constructor(
     public loadingController: LoadingController
-  ) {
-    this.showLoader();
-  }
+  ) { }
 
   showHideAutoLoader() {
-
     this.loadingController.create({
       message: 'This Loader Will Auto Hide in 2 Seconds',
       duration: 2000
@@ -28,17 +25,19 @@ export class CustomloaderService {
 
   // Show the loader for infinite time
   async showLoader() {
-    this.loader = await this.loadingController.create({
-      cssClass: 'my-custom-class',
-      message: 'Please wait...',
-      spinner: 'dots'
-    });
-    await this.loader.present();
+    const loader = await this.loadingController.create({
+      spinner: 'dots',
+      message: `<div>
+      <img src="../assets/pic-header.png" />
+      </div>`
+    })
+    await loader.present();
+
+
   }
 
   // Hide the loader if already created otherwise return error
   async hideLoader() {
-    await this.loader.dismiss();
-
+    await this.loadingController.dismiss();
   }
 }
