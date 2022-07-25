@@ -20,23 +20,42 @@ export class SplashPage implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     let squareC = this.animationCtrl.create()
       .addElement(document.querySelector('.img_wrapper'))
-      .duration(1500)
-      .fromTo('transform', 'scale(0.0)', 'scale(0.8)')
-      .fromTo('opacity', '0.2', '2');
+      .duration(3000)
+      .fromTo('opacity', '0.0', '2');
     squareC.play();
+    let squareD = this.animationCtrl.create()
+      .addElement(document.querySelector('.p_animation_text'))
+      .duration(1500)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '2  ', transform: 'scale(1.5)' },
+      ]);
+
 
     setTimeout(() => {
       let squareA = this.animationCtrl.create()
         .addElement(document.querySelector('.animate_text'))
         .duration(1500)
-        .fromTo('transform', 'scale(0.0)', 'scale(1.5)')
-        .fromTo('opacity', '0.2', '2');
-
+        .keyframes([
+          { offset: 0, opacity: '0', transform: 'scale(0)' },
+          { offset: 1, opacity: '2  ', transform: 'scale(1.5)' },
+        ]);
+      let squareB = this.animationCtrl.create()
+        .addElement(document.querySelector('.animate_text'))
+        .duration(1500)
+        .keyframes([
+          { offset: 0, transform: 'translateY(0px)', opacity: '0.5' },
+          { offset: 0.5, transform: 'translateY(40px)', opacity: '1' },
+          { offset: 1, transform: 'translateY(20px)', opacity: '2' }
+        ]);
       squareA.play();
+      setTimeout(() => {
+        squareB.play();
+      }, 1000)
     }, 1000)
-    setTimeout(() => {
-      this.router.navigate(['/home']);
-    }, 3000)
+    // setTimeout(() => {
+    //   this.router.navigate(['/home']);
+    // }, 3000)
 
 
   }

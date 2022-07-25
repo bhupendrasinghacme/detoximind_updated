@@ -27,7 +27,8 @@ export class CustomloaderService {
   async showLoader() {
     const loader = await this.loadingController.create({
       spinner: 'dots',
-      message: `<div>
+      cssClass: 'custom_loader_cls',
+      message: `<div class="loader_wrapper">
       <img src="../assets/pic-header.png" />
       </div>`
     })
