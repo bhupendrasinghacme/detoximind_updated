@@ -35,8 +35,7 @@
 
   </ion-fab>
 </ion-content>
-<ion-content *ngIf="openDraw === true && openNote === false && openDrawViewer === false" [forceOverscroll]=" false"
-  scroll="false">
+<ion-content *ngIf="openDraw === true && openNote === false && openDrawViewer === false" scrollY="false">
   <app-canvaspage (changeCompoents)="changeNotes($event)"></app-canvaspage>
 </ion-content>
 
