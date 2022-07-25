@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./forgetpassword.page.scss'],
 })
 export class ForgetpasswordPage implements OnInit {
-  sendEmail: boolean = true;
+  sendEmail: boolean = false;
   email: any = '';
   token: any;
   credentials: FormGroup;
@@ -22,6 +22,8 @@ export class ForgetpasswordPage implements OnInit {
   showPassword: any = true;
   resetcode: any = '';
   inputType: any = "password";
+  showlockPassword: any = true;
+  
   constructor(
     private forgetApi: ForgetService,
     private authService: AuthenticationService,
@@ -36,7 +38,8 @@ export class ForgetpasswordPage implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     })
     this.credentials = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      
       confirmPassword: ['', [Validators.required]],
       restCode: ['', [Validators.required, Validators.minLength(4)]]
     }, {
@@ -106,5 +109,10 @@ export class ForgetpasswordPage implements OnInit {
   }
   reset() {
     this.resetcode = '';
+  }
+
+  hidelockPassword() {
+    this.showlockPassword = true;
+    this.inputType = "password";
   }
 }

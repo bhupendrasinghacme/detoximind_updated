@@ -112,7 +112,7 @@ ion-card {
 .close_btn {
     font-size: 30px;
     position: absolute;
-   top: 0;
+    top: 0;
     right: 0;
 }
 
@@ -179,10 +179,12 @@ ion-card {
             ion-label {
                 color: #fff;
             }
+
             ion-input {
                 --color: #fff
             }
         }
+
         ion-card-content {
             padding: 0;
         }
@@ -194,6 +196,13 @@ ion-card {
             letter-spacing: 1px;
             font-size: 18px;
             padding-left: 20px;
+        }
+
+        ion-card-subtitle {
+            text-align: left;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
     }
 }
