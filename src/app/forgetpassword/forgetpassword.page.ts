@@ -22,6 +22,8 @@ export class ForgetpasswordPage implements OnInit {
   showPassword: any = true;
   resetcode: any = '';
   inputType: any = "password";
+  showlockPassword: any = true;
+  
   constructor(
     private forgetApi: ForgetService,
     private authService: AuthenticationService,
@@ -107,5 +109,10 @@ export class ForgetpasswordPage implements OnInit {
   }
   reset() {
     this.resetcode = '';
+  }
+
+  hidelockPassword() {
+    this.showlockPassword = true;
+    this.inputType = "password";
   }
 }

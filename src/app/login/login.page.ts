@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
   credentials: FormGroup;
   showPassword: any = true;
   inputType: String = "password";
+  
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
