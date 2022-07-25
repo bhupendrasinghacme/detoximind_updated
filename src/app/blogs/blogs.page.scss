@@ -19,17 +19,21 @@ ion-header {
 ion-content {
     --background: #0F1B41;
     --color: #FFFAEA;
+    height: 100vh;
     ion-item {
         --background: #0F1B41;  
     }
+    .coming-soon_wrap {
+        position: absolute;
+        top: 45%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        h1 {
+            text-align: center;
+        }
+    } 
 }
-.ion-activated {
-   
-}
-
-// ion-content{
-//     --background:#D3E7FF;
-// }
 .all_category_div_wrapper {
     display: flex;
     padding: 4px;

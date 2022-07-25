@@ -9,7 +9,7 @@
 
 <ion-content>
   <div>
-    <img src="../../assets/workshop.svg" alt="">
+    <!-- <img src="../../assets/workshop.svg" alt=""> -->
     <ion-card *ngFor="let post of posts" class="post-card" [routerLink]="['/post', post.id]">
       <ion-card-header>
         <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>

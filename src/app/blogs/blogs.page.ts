@@ -11,6 +11,8 @@ import { CustomloaderService } from '../services/customloader.service';
 })
 export class BlogsPage implements OnInit {
   posts: any;
+  blocklength: any;
+
   constructor(
     private postService: PostService,
     public loadingController: CustomloaderService
@@ -24,7 +26,8 @@ export class BlogsPage implements OnInit {
     this.loadingController.showLoader();
     this.postService.getPostDataPage(62, 1).subscribe(async item => {
       this.posts = item;
-      this.loadingController.hideLoader();
+      this.blocklength = item.blocklength;
+      // await loading.dismiss();
     }, async error => {
       console.log(error);
       this.loadingController.hideLoader();

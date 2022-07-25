@@ -47,7 +47,7 @@ export class HomePage implements AfterViewInit {
       img: "../../assets/blogs.jpg"
     },
     {
-      title: "Workshop",
+      title: "Workshops",
       color: "#0F1B41",
       type: "workshop",
       background: "#fff",
