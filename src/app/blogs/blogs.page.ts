@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { PostService } from '../services/post.service';
+import { CustomloaderService } from '../services/customloader.service';
 
 @Component({
   selector: 'app-blogs',
@@ -12,7 +13,7 @@ export class BlogsPage implements OnInit {
   posts: any;
   constructor(
     private postService: PostService,
-    public loadingController: LoadingController
+    public loadingController: CustomloaderService
   ) { }
 
   ngOnInit() {
@@ -20,19 +21,13 @@ export class BlogsPage implements OnInit {
   }
 
   async getPost() {
-    const loading = await this.loadingController.create({
-      cssClass: 'my-custom-class',
-      message: 'Please wait...',
-      spinner: 'lines-sharp'
-    });
-    await loading.present();
-
+    this.loadingController.showLoader();
     this.postService.getPostDataPage(62, 1).subscribe(async item => {
       this.posts = item;
-      await loading.dismiss();
+      this.loadingController.hideLoader();
     }, async error => {
       console.log(error);
-      await loading.dismiss();
+      this.loadingController.hideLoader();
     })
   }
 
