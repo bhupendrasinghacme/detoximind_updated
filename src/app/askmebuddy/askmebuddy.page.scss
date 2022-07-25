@@ -9,12 +9,6 @@ padding: 10px;
     }
 }
 
-// .text-feedback {
-//     display: flex;
-//     justify-content: center;
-//     padding-top: 100%;
-// }
-
 ion-footer {
     --background: #0F1B41;
     --color: #FFFAEA;
@@ -65,7 +59,6 @@ form {
 
     ion-button {
         --background: #fff !important;
-        // opacity: 1;
         color: #000;
         max-width: 157px;
         margin: 15px auto;
@@ -86,14 +79,6 @@ form {
         color: #fff;
     }
 }
-
-// ::ng-deep textarea.native-textarea.sc-ion-textarea-md {
-//     border: 2px solid #fff;
-//     padding: 10px;
-//     border-radius: 5px;
-// }
-
-
 ion-content {
     .text-feedback p {
         text-transform: capitalize;
@@ -102,6 +87,11 @@ ion-content {
             padding-right: 10px;
             text-transform: uppercase;
         }
+    }
+    ion-title {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 }
 

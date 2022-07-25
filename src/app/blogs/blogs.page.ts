@@ -10,6 +10,8 @@ import { PostService } from '../services/post.service';
 })
 export class BlogsPage implements OnInit {
   posts: any;
+  blocklength: any;
+  
   constructor(
     private postService: PostService,
     public loadingController: LoadingController
@@ -29,6 +31,7 @@ export class BlogsPage implements OnInit {
 
     this.postService.getPostDataPage(62, 1).subscribe(async item => {
       this.posts = item;
+     this.blocklength=item.blocklength;
       await loading.dismiss();
     }, async error => {
       console.log(error);
